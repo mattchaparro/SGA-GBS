@@ -1,0 +1,1395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_2059530306" name="GBS">
+	<packagedElement xmi:type="uml:Component" xmi:id="_bootstrap" name="Bootstrap">
+		<packagedElement xmi:type="uml:Component" xmi:id="_bootstrapeditor" name="Bootstrap Editor"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Component" xmi:id="_jquery" name="JQuery">
+	</packagedElement>
+	<packagedElement xmi:type="uml:Component" xmi:id="_2059530306" name="GBS">
+	</packagedElement>
+	<packagedElement xmi:type="uml:Component" xmi:id="_odbc" name="MySQL ODBC"/>
+	<packagedElement xmi:type="uml:Dependency" xmi:id="_0.7818697671204696" client="_bootstrap" supplier="_jquery"/>
+	<packagedElement xmi:type="uml:Dependency" xmi:id="_0.8817512038273636" client="_2059530306" supplier="_jquery"/>
+	<packagedElement xmi:type="uml:Dependency" xmi:id="_0.5755334542853876" client="_2059530306" supplier="_bootstrap"/>
+	<packagedElement xmi:type="uml:Dependency" xmi:id="_0.3739416864322811" client="_2059530306" supplier="_odbc"/>
+	<packagedElement xmi:type="uml:Class" xmi:id="_-891985903" name="String"/>
+	<packagedElement xmi:type="uml:Class" xmi:id="_104431" name="Int"/>
+	<packagedElement xmi:type="uml:Class" xmi:id="_3076014" name="Date"/>
+	<packagedElement xmi:type="uml:Class" xmi:id="_3560141" name="Time"/>
+	<packagedElement xmi:type="uml:Class" xmi:id="_1197798245" name="Administrator">
+		<ownedAttribute xmi:id="721665853" name="idAdministrator" visibility="private" type="_104431">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_721665853lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_721665853uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="573969999" name="name" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_573969999lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_573969999uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="1468047787" name="lastName" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1468047787lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1468047787uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="933203941" name="email" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_933203941lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_933203941uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="30618748" name="password" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_30618748lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_30618748uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="323346023" name="picture" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_323346023lv" value="0"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_323346023uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="1100654685" name="phone" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1100654685lv" value="0"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1100654685uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="171042604" name="mobile" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_171042604lv" value="0"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_171042604uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="316228290" name="state" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_316228290lv" value="0"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_316228290uv" value="1"/>
+		</ownedAttribute>
+		<ownedOperation xmi:id="_0.8676111179759504" name="insert"/>
+		<ownedOperation xmi:id="_0.16952365960719928" name="update"/>
+		<ownedOperation xmi:id="_0.10605211833838002" name="select"/>
+		<ownedOperation xmi:id="_0.44123447639679425" name="selectAll">
+			<ownedParameter xmi:id="_0.7422494817385917" name="Administrators" type="_1197798245" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.5638905606569597" name="selectAllOrder">
+			<ownedParameter xmi:id="_0.8077088542912892" name="order" type="_-891985903" />
+			<ownedParameter xmi:id="_0.9900491557924135" name="dir" type="_-891985903" />
+			<ownedParameter xmi:id="_0.08987146953847402" name="Administrators" type="_1197798245" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.21454027604519244" name="search">
+			<ownedParameter xmi:id="_0.2404060723086079" name="search" type="_-891985903" />
+			<ownedParameter xmi:id="_0.6127008484966635" name="Administrators" type="_1197798245" direction="return"/>
+		</ownedOperation>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Class" xmi:id="_793903128" name="LogAdministrator">
+		<ownedAttribute xmi:id="991858159" name="idLogAdministrator" visibility="private" type="_104431">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_991858159lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_991858159uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="1049822503" name="action" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1049822503lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1049822503uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="1711574885" name="information" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1711574885lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1711574885uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="1500053885" name="date" visibility="private" type="_3076014">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1500053885lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1500053885uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="383229514" name="time" visibility="private" type="_3560141">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_383229514lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_383229514uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="810228618" name="ip" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_810228618lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_810228618uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="1928774977" name="os" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1928774977lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1928774977uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="1661292683" name="browser" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1661292683lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1661292683uv" value="1"/>
+		</ownedAttribute>
+		<ownedOperation xmi:id="_0.8938871727313046" name="insert"/>
+		<ownedOperation xmi:id="_0.3020153618866612" name="search">
+			<ownedParameter xmi:id="_0.2586004491994037" name="search" type="_-891985903" />
+			<ownedParameter xmi:id="_0.0662144102199188" name="LogAdministrators" type="_793903128" direction="return"/>
+		</ownedOperation>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Class" xmi:id="_1233827695" name="Estudiante">
+		<ownedAttribute xmi:id="561345183" name="idEstudiante" visibility="private" type="_104431">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_561345183lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_561345183uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="1710061373" name="nombre" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1710061373lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1710061373uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="740680195" name="apellido" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_740680195lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_740680195uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="814221607" name="documento" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_814221607lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_814221607uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="979592227" name="fecha_nacimiento" visibility="private" type="_3076014">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_979592227lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_979592227uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="884582605" name="fecha_matricula" visibility="private" type="_3076014">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_884582605lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_884582605uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="923759011" name="sexo" visibility="private" type="_104431">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_923759011lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_923759011uv" value="1"/>
+		</ownedAttribute>
+		<ownedOperation xmi:id="_0.7511746537688782" name="insert"/>
+		<ownedOperation xmi:id="_0.42068108713539454" name="update"/>
+		<ownedOperation xmi:id="_0.3103722587788589" name="select"/>
+		<ownedOperation xmi:id="_0.4798670697284698" name="selectAll">
+			<ownedParameter xmi:id="_0.6608426482901664" name="Estudiantes" type="_1233827695" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.8185524954053218" name="selectAllOrder">
+			<ownedParameter xmi:id="_0.26374037928478644" name="order" type="_-891985903" />
+			<ownedParameter xmi:id="_0.6720460649947638" name="dir" type="_-891985903" />
+			<ownedParameter xmi:id="_0.1372510194573543" name="Estudiantes" type="_1233827695" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.7842933557024108" name="selectAllByCurso">
+			<ownedParameter xmi:id="_0.44628849265255655" name="Estudiantes" type="_1233827695" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.9414418803327177" name="selectAllByCursoOrder">
+			<ownedParameter xmi:id="_0.4275928950281237" name="order" type="_-891985903" />
+			<ownedParameter xmi:id="_0.6914272072827147" name="dir" type="_-891985903" />
+			<ownedParameter xmi:id="_0.15545704953216277" name="Estudiantes" type="_1233827695" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.18294958691148577" name="selectAllByEstadoEstudiante">
+			<ownedParameter xmi:id="_0.0762569398359324" name="Estudiantes" type="_1233827695" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.2107777820269584" name="selectAllByEstadoEstudianteOrder">
+			<ownedParameter xmi:id="_0.4993952202103431" name="order" type="_-891985903" />
+			<ownedParameter xmi:id="_0.9452518457892534" name="dir" type="_-891985903" />
+			<ownedParameter xmi:id="_0.07135112780809871" name="Estudiantes" type="_1233827695" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.9843816632095392" name="search">
+			<ownedParameter xmi:id="_0.06205515421268504" name="search" type="_-891985903" />
+			<ownedParameter xmi:id="_0.09490945083323887" name="Estudiantes" type="_1233827695" direction="return"/>
+		</ownedOperation>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Class" xmi:id="_1203668820" name="Curso">
+		<ownedAttribute xmi:id="1725805052" name="idCurso" visibility="private" type="_104431">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1725805052lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1725805052uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="526090794" name="nombre" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_526090794lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_526090794uv" value="1"/>
+		</ownedAttribute>
+		<ownedOperation xmi:id="_0.3331849550204232" name="insert"/>
+		<ownedOperation xmi:id="_0.6175937482214184" name="update"/>
+		<ownedOperation xmi:id="_0.5512510661888256" name="select"/>
+		<ownedOperation xmi:id="_0.08088600757018138" name="selectAll">
+			<ownedParameter xmi:id="_0.3601695565209845" name="Cursos" type="_1203668820" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.19083129042121183" name="selectAllOrder">
+			<ownedParameter xmi:id="_0.2846934674786792" name="order" type="_-891985903" />
+			<ownedParameter xmi:id="_0.4037855178812021" name="dir" type="_-891985903" />
+			<ownedParameter xmi:id="_0.43451064502140846" name="Cursos" type="_1203668820" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.6183805450688039" name="search">
+			<ownedParameter xmi:id="_0.09654936771622535" name="search" type="_-891985903" />
+			<ownedParameter xmi:id="_0.7856829747372434" name="Cursos" type="_1203668820" direction="return"/>
+		</ownedOperation>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Class" xmi:id="_1402300939" name="EstadoEstudiante">
+		<ownedAttribute xmi:id="1621279498" name="idEstadoEstudiante" visibility="private" type="_104431">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1621279498lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1621279498uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="1803279539" name="nombre" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1803279539lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1803279539uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="686967076" name="descripcion" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_686967076lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_686967076uv" value="1"/>
+		</ownedAttribute>
+		<ownedOperation xmi:id="_0.9082320656217169" name="insert"/>
+		<ownedOperation xmi:id="_0.08891474992777226" name="update"/>
+		<ownedOperation xmi:id="_0.005866667496889577" name="select"/>
+		<ownedOperation xmi:id="_0.7092796238487468" name="selectAll">
+			<ownedParameter xmi:id="_0.7394827364693994" name="EstadoEstudiantes" type="_1402300939" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.5108504255595403" name="selectAllOrder">
+			<ownedParameter xmi:id="_0.7782418080258922" name="order" type="_-891985903" />
+			<ownedParameter xmi:id="_0.4492162456700236" name="dir" type="_-891985903" />
+			<ownedParameter xmi:id="_0.6297431847713152" name="EstadoEstudiantes" type="_1402300939" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.3553942419637156" name="search">
+			<ownedParameter xmi:id="_0.3333972716509206" name="search" type="_-891985903" />
+			<ownedParameter xmi:id="_0.45372902580613905" name="EstadoEstudiantes" type="_1402300939" direction="return"/>
+		</ownedOperation>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Class" xmi:id="_1355787011" name="Area">
+		<ownedAttribute xmi:id="646154371" name="idArea" visibility="private" type="_104431">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_646154371lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_646154371uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="329795236" name="nombre" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_329795236lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_329795236uv" value="1"/>
+		</ownedAttribute>
+		<ownedOperation xmi:id="_0.8244623836804436" name="insert"/>
+		<ownedOperation xmi:id="_0.5411100185391581" name="update"/>
+		<ownedOperation xmi:id="_0.8038754454078635" name="select"/>
+		<ownedOperation xmi:id="_0.9514347003260466" name="selectAll">
+			<ownedParameter xmi:id="_0.8828193005243993" name="Areas" type="_1355787011" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.036061927424855145" name="selectAllOrder">
+			<ownedParameter xmi:id="_0.933844315411831" name="order" type="_-891985903" />
+			<ownedParameter xmi:id="_0.9558826731334321" name="dir" type="_-891985903" />
+			<ownedParameter xmi:id="_0.49671804525091157" name="Areas" type="_1355787011" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.6670659839541967" name="search">
+			<ownedParameter xmi:id="_0.4220492875723325" name="search" type="_-891985903" />
+			<ownedParameter xmi:id="_0.4196138064499717" name="Areas" type="_1355787011" direction="return"/>
+		</ownedOperation>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Class" xmi:id="_690591388" name="Asignatura">
+		<ownedAttribute xmi:id="76789513" name="idAsignatura" visibility="private" type="_104431">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_76789513lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_76789513uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="1055842440" name="nombre" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1055842440lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1055842440uv" value="1"/>
+		</ownedAttribute>
+		<ownedOperation xmi:id="_0.7447888375873644" name="insert"/>
+		<ownedOperation xmi:id="_0.22030917565660613" name="update"/>
+		<ownedOperation xmi:id="_0.7592346065384229" name="select"/>
+		<ownedOperation xmi:id="_0.1498166901770026" name="selectAll">
+			<ownedParameter xmi:id="_0.004082261886195426" name="Asignaturas" type="_690591388" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.2935716740774207" name="selectAllOrder">
+			<ownedParameter xmi:id="_0.08789692295204388" name="order" type="_-891985903" />
+			<ownedParameter xmi:id="_0.2392742789672745" name="dir" type="_-891985903" />
+			<ownedParameter xmi:id="_0.1103070243105928" name="Asignaturas" type="_690591388" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.5175144139102168" name="selectAllByArea">
+			<ownedParameter xmi:id="_0.6210229115346964" name="Asignaturas" type="_690591388" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.189145088921452" name="selectAllByAreaOrder">
+			<ownedParameter xmi:id="_0.2568764064747604" name="order" type="_-891985903" />
+			<ownedParameter xmi:id="_0.7019705555397738" name="dir" type="_-891985903" />
+			<ownedParameter xmi:id="_0.19650105364367543" name="Asignaturas" type="_690591388" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.6042242500696798" name="search">
+			<ownedParameter xmi:id="_0.5536922764136903" name="search" type="_-891985903" />
+			<ownedParameter xmi:id="_0.18290632608423818" name="Asignaturas" type="_690591388" direction="return"/>
+		</ownedOperation>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Class" xmi:id="_1864502423" name="Logro">
+		<ownedAttribute xmi:id="182123161" name="idLogro" visibility="private" type="_104431">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_182123161lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_182123161uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="325599028" name="nombre" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_325599028lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_325599028uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="1514895217" name="descripcion" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1514895217lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1514895217uv" value="1"/>
+		</ownedAttribute>
+		<ownedOperation xmi:id="_0.6151877777439431" name="insert"/>
+		<ownedOperation xmi:id="_0.32668249375309755" name="update"/>
+		<ownedOperation xmi:id="_0.12850976426634764" name="select"/>
+		<ownedOperation xmi:id="_0.14669294048333648" name="selectAll">
+			<ownedParameter xmi:id="_0.5131466128785791" name="Logros" type="_1864502423" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.14088119003883715" name="selectAllOrder">
+			<ownedParameter xmi:id="_0.1468896124414496" name="order" type="_-891985903" />
+			<ownedParameter xmi:id="_0.990558153716018" name="dir" type="_-891985903" />
+			<ownedParameter xmi:id="_0.6523682825739242" name="Logros" type="_1864502423" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.7297143975178726" name="selectAllByAsignatura">
+			<ownedParameter xmi:id="_0.1511592600349274" name="Logros" type="_1864502423" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.8415621914446452" name="selectAllByAsignaturaOrder">
+			<ownedParameter xmi:id="_0.6793184085804868" name="order" type="_-891985903" />
+			<ownedParameter xmi:id="_0.39202979277769534" name="dir" type="_-891985903" />
+			<ownedParameter xmi:id="_0.6744680678943009" name="Logros" type="_1864502423" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.20116982448876752" name="selectAllByTipoLogro">
+			<ownedParameter xmi:id="_0.5969491061366012" name="Logros" type="_1864502423" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.14103182780741141" name="selectAllByTipoLogroOrder">
+			<ownedParameter xmi:id="_0.1729358250067521" name="order" type="_-891985903" />
+			<ownedParameter xmi:id="_0.30846659810535004" name="dir" type="_-891985903" />
+			<ownedParameter xmi:id="_0.4233495661186213" name="Logros" type="_1864502423" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.1951724609768396" name="search">
+			<ownedParameter xmi:id="_0.9370578419059221" name="search" type="_-891985903" />
+			<ownedParameter xmi:id="_0.2222937431753751" name="Logros" type="_1864502423" direction="return"/>
+		</ownedOperation>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Class" xmi:id="_636657179" name="TipoLogro">
+		<ownedAttribute xmi:id="2023859726" name="idTipoLogro" visibility="private" type="_104431">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2023859726lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2023859726uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="711108529" name="nombre" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_711108529lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_711108529uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="722709875" name="descripcion" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_722709875lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_722709875uv" value="1"/>
+		</ownedAttribute>
+		<ownedOperation xmi:id="_0.7689992113462853" name="insert"/>
+		<ownedOperation xmi:id="_0.5458862779522632" name="update"/>
+		<ownedOperation xmi:id="_0.7929440855125587" name="select"/>
+		<ownedOperation xmi:id="_0.8110532916852475" name="selectAll">
+			<ownedParameter xmi:id="_0.35462734511316996" name="TipoLogros" type="_636657179" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.24062783747544625" name="selectAllOrder">
+			<ownedParameter xmi:id="_0.08463379323447706" name="order" type="_-891985903" />
+			<ownedParameter xmi:id="_0.8086608287234819" name="dir" type="_-891985903" />
+			<ownedParameter xmi:id="_0.8129709391638046" name="TipoLogros" type="_636657179" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.25502143147872214" name="search">
+			<ownedParameter xmi:id="_0.6406411053739473" name="search" type="_-891985903" />
+			<ownedParameter xmi:id="_0.8461004174664029" name="TipoLogros" type="_636657179" direction="return"/>
+		</ownedOperation>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Class" xmi:id="_446757964" name="LogProfesor">
+		<ownedAttribute xmi:id="1866774720" name="idLogProfesor" visibility="private" type="_104431">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1866774720lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1866774720uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="1344587190" name="action" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1344587190lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1344587190uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="1718256372" name="information" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1718256372lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1718256372uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="2067091689" name="date" visibility="private" type="_3076014">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2067091689lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2067091689uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="838690295" name="time" visibility="private" type="_3560141">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_838690295lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_838690295uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="1199709963" name="ip" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1199709963lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1199709963uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="1976387629" name="os" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1976387629lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1976387629uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="615443557" name="browser" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_615443557lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_615443557uv" value="1"/>
+		</ownedAttribute>
+		<ownedOperation xmi:id="_0.4702621042126598" name="insert"/>
+		<ownedOperation xmi:id="_0.34453451693301596" name="search">
+			<ownedParameter xmi:id="_0.17105122060583122" name="search" type="_-891985903" />
+			<ownedParameter xmi:id="_0.9002627292605413" name="LogProfesors" type="_446757964" direction="return"/>
+		</ownedOperation>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Class" xmi:id="_2124871642" name="Profesor">
+		<ownedAttribute xmi:id="697025858" name="idProfesor" visibility="private" type="_104431">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_697025858lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_697025858uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="907570302" name="nombre" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_907570302lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_907570302uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="1694917404" name="apellido" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1694917404lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1694917404uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="743915585" name="documento" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_743915585lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_743915585uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="1535189340" name="correo" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1535189340lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1535189340uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="772791758" name="clave" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_772791758lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_772791758uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="2026325392" name="telefono" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2026325392lv" value="0"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2026325392uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="1854162817" name="state" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1854162817lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1854162817uv" value="1"/>
+		</ownedAttribute>
+		<ownedOperation xmi:id="_0.1870656300450032" name="insert"/>
+		<ownedOperation xmi:id="_0.06393769097041191" name="update"/>
+		<ownedOperation xmi:id="_0.815900871433567" name="select"/>
+		<ownedOperation xmi:id="_0.9152235512437916" name="selectAll">
+			<ownedParameter xmi:id="_0.753125906743805" name="Profesors" type="_2124871642" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.22191573454883284" name="selectAllOrder">
+			<ownedParameter xmi:id="_0.37124055162579583" name="order" type="_-891985903" />
+			<ownedParameter xmi:id="_0.4458468508774448" name="dir" type="_-891985903" />
+			<ownedParameter xmi:id="_0.7771718863771762" name="Profesors" type="_2124871642" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.39854591343124146" name="search">
+			<ownedParameter xmi:id="_0.056190589515263456" name="search" type="_-891985903" />
+			<ownedParameter xmi:id="_0.049573138984719156" name="Profesors" type="_2124871642" direction="return"/>
+		</ownedOperation>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Class" xmi:id="_1021120716" name="CursoAsignaturaProfesor">
+		<ownedAttribute xmi:id="1819040564" name="idCursoAsignaturaProfesor" visibility="private" type="_104431">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1819040564lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1819040564uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="776304876" name="noused" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_776304876lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_776304876uv" value="1"/>
+		</ownedAttribute>
+		<ownedOperation xmi:id="_0.49016724895852437" name="insert"/>
+		<ownedOperation xmi:id="_0.7949610558087986" name="update"/>
+		<ownedOperation xmi:id="_0.5524666890352312" name="select"/>
+		<ownedOperation xmi:id="_0.8094800202107224" name="selectAll">
+			<ownedParameter xmi:id="_0.38928299674368516" name="CursoAsignaturaProfesors" type="_1021120716" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.6073665046518998" name="selectAllOrder">
+			<ownedParameter xmi:id="_0.4472648767267885" name="order" type="_-891985903" />
+			<ownedParameter xmi:id="_0.8101787741290927" name="dir" type="_-891985903" />
+			<ownedParameter xmi:id="_0.18990756186309" name="CursoAsignaturaProfesors" type="_1021120716" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.32168200393542024" name="selectAllByCurso">
+			<ownedParameter xmi:id="_0.14105980988841782" name="CursoAsignaturaProfesors" type="_1021120716" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.6078373943301618" name="selectAllByCursoOrder">
+			<ownedParameter xmi:id="_0.12429946543700598" name="order" type="_-891985903" />
+			<ownedParameter xmi:id="_0.8104303119294118" name="dir" type="_-891985903" />
+			<ownedParameter xmi:id="_0.7437844910859341" name="CursoAsignaturaProfesors" type="_1021120716" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.7365966075250666" name="selectAllByAsignatura">
+			<ownedParameter xmi:id="_0.22802634833371627" name="CursoAsignaturaProfesors" type="_1021120716" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.880097164732863" name="selectAllByAsignaturaOrder">
+			<ownedParameter xmi:id="_0.47602344838490984" name="order" type="_-891985903" />
+			<ownedParameter xmi:id="_0.07587263911752906" name="dir" type="_-891985903" />
+			<ownedParameter xmi:id="_0.8891230712029061" name="CursoAsignaturaProfesors" type="_1021120716" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.9650371919704402" name="selectAllByProfesor">
+			<ownedParameter xmi:id="_0.6162654832170164" name="CursoAsignaturaProfesors" type="_1021120716" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.46651638243497007" name="selectAllByProfesorOrder">
+			<ownedParameter xmi:id="_0.5999409119773541" name="order" type="_-891985903" />
+			<ownedParameter xmi:id="_0.9931034894360098" name="dir" type="_-891985903" />
+			<ownedParameter xmi:id="_0.09092632265915446" name="CursoAsignaturaProfesors" type="_1021120716" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.3085257437740757" name="search">
+			<ownedParameter xmi:id="_0.5479488382202573" name="search" type="_-891985903" />
+			<ownedParameter xmi:id="_0.05852899880165918" name="CursoAsignaturaProfesors" type="_1021120716" direction="return"/>
+		</ownedOperation>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Class" xmi:id="_1647418090" name="Periodo">
+		<ownedAttribute xmi:id="918469904" name="idPeriodo" visibility="private" type="_104431">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_918469904lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_918469904uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="939910408" name="orden" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_939910408lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_939910408uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="1023568124" name="fecha_inicio" visibility="private" type="_3076014">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1023568124lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1023568124uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="1393181564" name="fecha_fin" visibility="private" type="_3076014">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1393181564lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1393181564uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="270479920" name="anio" visibility="private" type="_3076014">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_270479920lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_270479920uv" value="1"/>
+		</ownedAttribute>
+		<ownedOperation xmi:id="_0.39076523973521327" name="insert"/>
+		<ownedOperation xmi:id="_0.9989840990333942" name="update"/>
+		<ownedOperation xmi:id="_0.40928687634032757" name="select"/>
+		<ownedOperation xmi:id="_0.4291898642466597" name="selectAll">
+			<ownedParameter xmi:id="_0.6154841460400232" name="Periodos" type="_1647418090" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.9761246640058692" name="selectAllOrder">
+			<ownedParameter xmi:id="_0.46766075470331425" name="order" type="_-891985903" />
+			<ownedParameter xmi:id="_0.5882327716603377" name="dir" type="_-891985903" />
+			<ownedParameter xmi:id="_0.09771150423136299" name="Periodos" type="_1647418090" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.823896763579445" name="search">
+			<ownedParameter xmi:id="_0.9712058458043488" name="search" type="_-891985903" />
+			<ownedParameter xmi:id="_0.4641490636687796" name="Periodos" type="_1647418090" direction="return"/>
+		</ownedOperation>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Class" xmi:id="_128297118" name="Calificacion">
+		<ownedAttribute xmi:id="701392158" name="idCalificacion" visibility="private" type="_104431">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_701392158lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_701392158uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="677303032" name="nota" visibility="private" type="_104431">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_677303032lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_677303032uv" value="1"/>
+		</ownedAttribute>
+		<ownedOperation xmi:id="_0.23823748820376733" name="insert"/>
+		<ownedOperation xmi:id="_0.3611370944694051" name="update"/>
+		<ownedOperation xmi:id="_0.4612379127036096" name="select"/>
+		<ownedOperation xmi:id="_0.7387307708309112" name="selectAll">
+			<ownedParameter xmi:id="_0.896280852925305" name="Calificacions" type="_128297118" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.890425129827491" name="selectAllOrder">
+			<ownedParameter xmi:id="_0.659346578135901" name="order" type="_-891985903" />
+			<ownedParameter xmi:id="_0.13894475982297017" name="dir" type="_-891985903" />
+			<ownedParameter xmi:id="_0.9217322620086721" name="Calificacions" type="_128297118" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.8139285108724756" name="selectAllByTipoCalificacion">
+			<ownedParameter xmi:id="_0.3830772099720976" name="Calificacions" type="_128297118" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.9166131637524194" name="selectAllByTipoCalificacionOrder">
+			<ownedParameter xmi:id="_0.19073256933933835" name="order" type="_-891985903" />
+			<ownedParameter xmi:id="_0.6370211635298947" name="dir" type="_-891985903" />
+			<ownedParameter xmi:id="_0.8754855804442734" name="Calificacions" type="_128297118" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.29888929507012596" name="selectAllByPeriodo">
+			<ownedParameter xmi:id="_0.8116087896762093" name="Calificacions" type="_128297118" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.9751828940714588" name="selectAllByPeriodoOrder">
+			<ownedParameter xmi:id="_0.880138564752381" name="order" type="_-891985903" />
+			<ownedParameter xmi:id="_0.5528702552317502" name="dir" type="_-891985903" />
+			<ownedParameter xmi:id="_0.005104506818590426" name="Calificacions" type="_128297118" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.555666159947798" name="selectAllByEstudiante">
+			<ownedParameter xmi:id="_0.770673789086877" name="Calificacions" type="_128297118" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.4492889720808393" name="selectAllByEstudianteOrder">
+			<ownedParameter xmi:id="_0.5310057633366461" name="order" type="_-891985903" />
+			<ownedParameter xmi:id="_0.36264229891174793" name="dir" type="_-891985903" />
+			<ownedParameter xmi:id="_0.05281943256616528" name="Calificacions" type="_128297118" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.33307965430563435" name="selectAllByAsignatura">
+			<ownedParameter xmi:id="_0.4326768757992887" name="Calificacions" type="_128297118" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.013015701331067553" name="selectAllByAsignaturaOrder">
+			<ownedParameter xmi:id="_0.5968152527277085" name="order" type="_-891985903" />
+			<ownedParameter xmi:id="_0.7127126357357515" name="dir" type="_-891985903" />
+			<ownedParameter xmi:id="_0.3016855974962903" name="Calificacions" type="_128297118" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.16982143428332508" name="search">
+			<ownedParameter xmi:id="_0.029464300190292447" name="search" type="_-891985903" />
+			<ownedParameter xmi:id="_0.26554556215897396" name="Calificacions" type="_128297118" direction="return"/>
+		</ownedOperation>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Class" xmi:id="_1102707569" name="TipoCalificacion">
+		<ownedAttribute xmi:id="1802656384" name="idTipoCalificacion" visibility="private" type="_104431">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1802656384lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1802656384uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="835597413" name="nombre" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_835597413lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_835597413uv" value="1"/>
+		</ownedAttribute>
+		<ownedOperation xmi:id="_0.2266103881895366" name="insert"/>
+		<ownedOperation xmi:id="_0.3010979877804978" name="update"/>
+		<ownedOperation xmi:id="_0.8175841587126259" name="select"/>
+		<ownedOperation xmi:id="_0.4230403084439823" name="selectAll">
+			<ownedParameter xmi:id="_0.08328694455194763" name="TipoCalificacions" type="_1102707569" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.37435367790851704" name="selectAllOrder">
+			<ownedParameter xmi:id="_0.7084158490289495" name="order" type="_-891985903" />
+			<ownedParameter xmi:id="_0.24754561089535265" name="dir" type="_-891985903" />
+			<ownedParameter xmi:id="_0.8481650757431967" name="TipoCalificacions" type="_1102707569" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.1402216017935084" name="search">
+			<ownedParameter xmi:id="_0.3575866807608451" name="search" type="_-891985903" />
+			<ownedParameter xmi:id="_0.14144764581426084" name="TipoCalificacions" type="_1102707569" direction="return"/>
+		</ownedOperation>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Class" xmi:id="_1868167606" name="LogSecretaria">
+		<ownedAttribute xmi:id="1630926175" name="idLogSecretaria" visibility="private" type="_104431">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1630926175lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1630926175uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="417994147" name="action" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_417994147lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_417994147uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="1481078727" name="information" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1481078727lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1481078727uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="2029232432" name="date" visibility="private" type="_3076014">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2029232432lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2029232432uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="908213372" name="time" visibility="private" type="_3560141">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_908213372lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_908213372uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="2125295638" name="ip" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2125295638lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2125295638uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="490199371" name="os" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_490199371lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_490199371uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="2015891964" name="browser" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2015891964lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2015891964uv" value="1"/>
+		</ownedAttribute>
+		<ownedOperation xmi:id="_0.17211120618589826" name="insert"/>
+		<ownedOperation xmi:id="_0.5036246848833593" name="search">
+			<ownedParameter xmi:id="_0.17151388776349963" name="search" type="_-891985903" />
+			<ownedParameter xmi:id="_0.03984210229118179" name="LogSecretarias" type="_1868167606" direction="return"/>
+		</ownedOperation>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Class" xmi:id="_1607336793" name="Secretaria">
+		<ownedAttribute xmi:id="1249305974" name="idSecretaria" visibility="private" type="_104431">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1249305974lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1249305974uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="1772650738" name="nombre" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1772650738lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1772650738uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="1362611146" name="apellido" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1362611146lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1362611146uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="2127351422" name="documento" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2127351422lv" value="0"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2127351422uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="65853828" name="correo" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_65853828lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_65853828uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="787379739" name="clave" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_787379739lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_787379739uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="1105756567" name="telefono" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1105756567lv" value="0"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1105756567uv" value="1"/>
+		</ownedAttribute>
+		<ownedAttribute xmi:id="1506740458" name="state" visibility="private" type="_-891985903">
+			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1506740458lv" value="1"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1506740458uv" value="1"/>
+		</ownedAttribute>
+		<ownedOperation xmi:id="_0.538905730503742" name="insert"/>
+		<ownedOperation xmi:id="_0.10674897913611281" name="update"/>
+		<ownedOperation xmi:id="_0.6186733995404565" name="select"/>
+		<ownedOperation xmi:id="_0.12948277310021228" name="selectAll">
+			<ownedParameter xmi:id="_0.9508486404036127" name="Secretarias" type="_1607336793" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.6553497676204465" name="selectAllOrder">
+			<ownedParameter xmi:id="_0.5229481876899865" name="order" type="_-891985903" />
+			<ownedParameter xmi:id="_0.80961351591359" name="dir" type="_-891985903" />
+			<ownedParameter xmi:id="_0.23330058967248635" name="Secretarias" type="_1607336793" direction="return"/>
+		</ownedOperation>
+		<ownedOperation xmi:id="_0.7083918028045857" name="search">
+			<ownedParameter xmi:id="_0.1423092435139478" name="search" type="_-891985903" />
+			<ownedParameter xmi:id="_0.5643916344328732" name="Secretarias" type="_1607336793" direction="return"/>
+		</ownedOperation>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Dependency" xmi:id="_1007340206" name="idLogAdministrator" visibility="private" client="_1197798245" supplier="_793903128"/>
+	<packagedElement xmi:type="uml:Dependency" xmi:id="_1627995546" name="idCalificacion" visibility="private" client="_1233827695" supplier="_128297118"/>
+	<packagedElement xmi:type="uml:Dependency" xmi:id="_1692986389" name="idEstudiante" visibility="private" client="_1203668820" supplier="_1233827695"/>
+	<packagedElement xmi:type="uml:Dependency" xmi:id="_1170288698" name="idCursoAsignaturaProfesor" visibility="private" client="_1203668820" supplier="_1021120716"/>
+	<packagedElement xmi:type="uml:Dependency" xmi:id="_804572566" name="idEstudiante" visibility="private" client="_1402300939" supplier="_1233827695"/>
+	<packagedElement xmi:type="uml:Dependency" xmi:id="_121229343" name="idAsignatura" visibility="private" client="_1355787011" supplier="_690591388"/>
+	<packagedElement xmi:type="uml:Dependency" xmi:id="_613551273" name="idLogro" visibility="private" client="_690591388" supplier="_1864502423"/>
+	<packagedElement xmi:type="uml:Dependency" xmi:id="_1746843873" name="idCursoAsignaturaProfesor" visibility="private" client="_690591388" supplier="_1021120716"/>
+	<packagedElement xmi:type="uml:Dependency" xmi:id="_1636782089" name="idCalificacion" visibility="private" client="_690591388" supplier="_128297118"/>
+	<packagedElement xmi:type="uml:Dependency" xmi:id="_679464207" name="idLogro" visibility="private" client="_636657179" supplier="_1864502423"/>
+	<packagedElement xmi:type="uml:Dependency" xmi:id="_482114541" name="idCursoAsignaturaProfesor" visibility="private" client="_2124871642" supplier="_1021120716"/>
+	<packagedElement xmi:type="uml:Dependency" xmi:id="_33034539" name="idLogProfesor" visibility="private" client="_2124871642" supplier="_446757964"/>
+	<packagedElement xmi:type="uml:Dependency" xmi:id="_451679749" name="idCalificacion" visibility="private" client="_1647418090" supplier="_128297118"/>
+	<packagedElement xmi:type="uml:Dependency" xmi:id="_1278060514" name="idCalificacion" visibility="private" client="_1102707569" supplier="_128297118"/>
+	<packagedElement xmi:type="uml:Dependency" xmi:id="_867294873" name="idLogSecretaria" visibility="private" client="_1607336793" supplier="_1868167606"/>
+	<packagedElement xmi:type="uml:Actor" xmi:id="_1197798245actor" name="Administrator">
+		<eAnnotations xmi:id="_0.7306510684108712" source="http://www.eclipse.org/uml2/2.0.0/UML">
+			<details xmi:id="_0.620751437182692" key="Human"/>
+		</eAnnotations>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Actor" xmi:id="_2124871642actor" name="Profesor">
+		<eAnnotations xmi:id="_0.15737158139707863" source="http://www.eclipse.org/uml2/2.0.0/UML">
+			<details xmi:id="_0.6519627557538956" key="Human"/>
+		</eAnnotations>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Actor" xmi:id="_1607336793actor" name="Secretaria">
+		<eAnnotations xmi:id="_0.3781191906263094" source="http://www.eclipse.org/uml2/2.0.0/UML">
+			<details xmi:id="_0.07968480878644635" key="Human"/>
+		</eAnnotations>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1197798245useCaseManage" name="Manage Administrator"/>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1197798245useCaseInsert" name="Insert Administrator">
+		<generalization xmi:id="_0.04690642595004857" general="_1197798245useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1197798245useCaseSelect" name="Select Administrator">
+		<generalization xmi:id="_0.03184816939273005" general="_1197798245useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1197798245useCaseSelectAll" name="Select All Administrator">
+		<generalization xmi:id="_0.8769565948279885" general="_1197798245useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1197798245useCaseSelectAllOrder" name="Select All Order Administrator">
+		<generalization xmi:id="_0.20799332090877898" general="_1197798245useCaseManage"/>
+		<extend xmi:id="_0.711179733865988" extendedCase="_1197798245useCaseSelectAll"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1197798245useCaseSearch" name="Search Administrator">
+		<generalization xmi:id="_0.7501582208236086" general="_1197798245useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1197798245useCaseUpdate" name="Update Administrator">
+		<generalization xmi:id="_0.9750359513840624" general="_1197798245useCaseManage"/>
+		<include xmi:id="_0.5202937062941214" addition="_1197798245useCaseSelect"/>
+		<extend xmi:id="_0.6190272137291765" extendedCase="_1197798245useCaseSelectAll"/>
+		<extend xmi:id="_0.08124544148377211" extendedCase="_1197798245useCaseSelectAllOrder"/>
+		<extend xmi:id="_0.6604733379872295" extendedCase="_1197798245useCaseSearch"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1197798245useCaseEditProfile" name="Edit Profile Administrator">
+		<generalization xmi:id="_0.11352657064824434" general="_1197798245useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1197798245useCaseUpdatePassword" name="Update Password Administrator">
+		<generalization xmi:id="_0.20086335804926236" general="_1197798245useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_1197798245actor_1197798245useCaseEditProfile" memberEnd="_1197798245actorSource _1197798245useCaseEditProfileTarget">
+		<ownedEnd xmi:id="_1197798245actorSource" type="_1197798245actor" association="_1197798245actor_1197798245useCaseEditProfile"/>
+		<ownedEnd xmi:id="_1197798245useCaseEditProfileTarget" type="_1197798245useCaseEditProfile" association="_1197798245actor_1197798245useCaseEditProfile"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_1197798245actor_1197798245useCaseUpdatePassword" memberEnd="_1197798245actorSource _1197798245useCaseUpdatePasswordTarget">
+		<ownedEnd xmi:id="_1197798245actorSource" type="_1197798245actor" association="_1197798245actor_1197798245useCaseUpdatePassword"/>
+		<ownedEnd xmi:id="_1197798245useCaseUpdatePasswordTarget" type="_1197798245useCaseUpdatePassword" association="_1197798245actor_1197798245useCaseUpdatePassword"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_1197798245actor_1197798245useCaseInsert" memberEnd="_1197798245actorSource _1197798245useCaseInsertTarget">
+		<ownedEnd xmi:id="_1197798245actorSource" type="_1197798245actor" association="_1197798245actor_1197798245useCaseInsert"/>
+		<ownedEnd xmi:id="_1197798245useCaseInsertTarget" type="_1197798245useCaseInsert" association="_1197798245actor_1197798245useCaseInsert"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_1197798245actor_1197798245useCaseSelectAll" memberEnd="_1197798245actorSource _1197798245useCaseSelectAllTarget">
+		<ownedEnd xmi:id="_1197798245actorSource" type="_1197798245actor" association="_1197798245actor_1197798245useCaseSelectAll"/>
+		<ownedEnd xmi:id="_1197798245useCaseSelectAllTarget" type="_1197798245useCaseSelectAll" association="_1197798245actor_1197798245useCaseSelectAll"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_1197798245actor_1197798245useCaseSearch" memberEnd="_1197798245actorSource _1197798245useCaseSearchTarget">
+		<ownedEnd xmi:id="_1197798245actorSource" type="_1197798245actor" association="_1197798245actor_1197798245useCaseSearch"/>
+		<ownedEnd xmi:id="_1197798245useCaseSearchTarget" type="_1197798245useCaseSearch" association="_1197798245actor_1197798245useCaseSearch"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_793903128useCaseManage" name="Manage LogAdministrator"/>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_793903128useCaseInsert" name="Insert LogAdministrator">
+		<generalization xmi:id="_0.0847642061177053" general="_793903128useCaseManage"/>
+		<extend xmi:id="_0.4128454096973543" extendedCase="_1197798245useCaseInsert"/>
+		<extend xmi:id="_0.3488143046779344" extendedCase="_1197798245useCaseUpdate"/>
+		<extend xmi:id="_0.687362696742794" extendedCase="_1233827695useCaseInsert"/>
+		<extend xmi:id="_0.8787041150182419" extendedCase="_1233827695useCaseUpdate"/>
+		<extend xmi:id="_0.5247280084942118" extendedCase="_1203668820useCaseInsert"/>
+		<extend xmi:id="_0.9390052670796195" extendedCase="_1203668820useCaseUpdate"/>
+		<extend xmi:id="_0.10233975339656298" extendedCase="_1402300939useCaseInsert"/>
+		<extend xmi:id="_0.851816458621799" extendedCase="_1402300939useCaseUpdate"/>
+		<extend xmi:id="_0.9056955941085134" extendedCase="_1355787011useCaseInsert"/>
+		<extend xmi:id="_0.7947181548110126" extendedCase="_1355787011useCaseUpdate"/>
+		<extend xmi:id="_0.658393253575125" extendedCase="_690591388useCaseInsert"/>
+		<extend xmi:id="_0.2429544571286374" extendedCase="_690591388useCaseUpdate"/>
+		<extend xmi:id="_0.7115856100930605" extendedCase="_1864502423useCaseInsert"/>
+		<extend xmi:id="_0.20142671836273285" extendedCase="_1864502423useCaseUpdate"/>
+		<extend xmi:id="_0.37516937232910175" extendedCase="_636657179useCaseInsert"/>
+		<extend xmi:id="_1.9964063711275237E-4" extendedCase="_636657179useCaseUpdate"/>
+		<extend xmi:id="_0.6037457954275527" extendedCase="_2124871642useCaseInsert"/>
+		<extend xmi:id="_0.901101700295212" extendedCase="_2124871642useCaseUpdate"/>
+		<extend xmi:id="_0.3426379178982423" extendedCase="_1021120716useCaseInsert"/>
+		<extend xmi:id="_0.5992481496569392" extendedCase="_1021120716useCaseUpdate"/>
+		<extend xmi:id="_0.4361466300073371" extendedCase="_1647418090useCaseInsert"/>
+		<extend xmi:id="_0.434153389566597" extendedCase="_1647418090useCaseUpdate"/>
+		<extend xmi:id="_0.6855640770640118" extendedCase="_128297118useCaseInsert"/>
+		<extend xmi:id="_0.5483825474516164" extendedCase="_128297118useCaseUpdate"/>
+		<extend xmi:id="_0.692654742584357" extendedCase="_1102707569useCaseInsert"/>
+		<extend xmi:id="_0.6608948050741951" extendedCase="_1102707569useCaseUpdate"/>
+		<extend xmi:id="_0.9503980059928504" extendedCase="_1607336793useCaseInsert"/>
+		<extend xmi:id="_0.6364560205823933" extendedCase="_1607336793useCaseUpdate"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_793903128useCaseSearch" name="Search Log Administrator">
+		<generalization xmi:id="_0.0524279555436018" general="_793903128useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_1197798245actor_793903128useCaseSearch" memberEnd="_1197798245actorSource _793903128useCaseSearchTarget">
+		<ownedEnd xmi:id="_1197798245actorSource" type="_1197798245actor" association="_1197798245actor_793903128useCaseSearch"/>
+		<ownedEnd xmi:id="_793903128useCaseSearchTarget" type="_793903128useCaseSearch" association="_1197798245actor_793903128useCaseSearch"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1233827695useCaseManage" name="Manage Estudiante"/>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1233827695useCaseInsert" name="Insert Estudiante">
+		<generalization xmi:id="_0.7264720854525026" general="_1233827695useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1233827695useCaseSelect" name="Select Estudiante">
+		<generalization xmi:id="_0.3320929184501966" general="_1233827695useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1233827695useCaseSelectAll" name="Select All Estudiante">
+		<generalization xmi:id="_0.5906675559597535" general="_1233827695useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1233827695useCaseSelectAllOrder" name="Select All Order Estudiante">
+		<generalization xmi:id="_0.04830571207824086" general="_1233827695useCaseManage"/>
+		<extend xmi:id="_0.8591849747999278" extendedCase="_1233827695useCaseSelectAll"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1233827695useCaseSearch" name="Search Estudiante">
+		<generalization xmi:id="_0.8859018149450022" general="_1233827695useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1233827695useCaseUpdate" name="Update Estudiante">
+		<generalization xmi:id="_0.7025082703104658" general="_1233827695useCaseManage"/>
+		<include xmi:id="_0.9012336978651178" addition="_1233827695useCaseSelect"/>
+		<extend xmi:id="_0.29934732421941834" extendedCase="_1233827695useCaseSelectAll"/>
+		<extend xmi:id="_0.627992136469834" extendedCase="_1233827695useCaseSelectAllOrder"/>
+		<extend xmi:id="_0.15311045673292512" extendedCase="_1233827695useCaseSearch"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_1197798245actor_1233827695useCaseInsert" memberEnd="_1197798245actorSource _1233827695useCaseInsertTarget">
+		<ownedEnd xmi:id="_1197798245actorSource" type="_1197798245actor" association="_1197798245actor_1233827695useCaseInsert"/>
+		<ownedEnd xmi:id="_1233827695useCaseInsertTarget" type="_1233827695useCaseInsert" association="_1197798245actor_1233827695useCaseInsert"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_1197798245actor_1233827695useCaseSelectAll" memberEnd="_1197798245actorSource _1233827695useCaseSelectAllTarget">
+		<ownedEnd xmi:id="_1197798245actorSource" type="_1197798245actor" association="_1197798245actor_1233827695useCaseSelectAll"/>
+		<ownedEnd xmi:id="_1233827695useCaseSelectAllTarget" type="_1233827695useCaseSelectAll" association="_1197798245actor_1233827695useCaseSelectAll"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_1197798245actor_1233827695useCaseSearch" memberEnd="_1197798245actorSource _1233827695useCaseSearchTarget">
+		<ownedEnd xmi:id="_1197798245actorSource" type="_1197798245actor" association="_1197798245actor_1233827695useCaseSearch"/>
+		<ownedEnd xmi:id="_1233827695useCaseSearchTarget" type="_1233827695useCaseSearch" association="_1197798245actor_1233827695useCaseSearch"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1203668820useCaseManage" name="Manage Curso"/>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1203668820useCaseInsert" name="Insert Curso">
+		<generalization xmi:id="_0.26317465693748143" general="_1203668820useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1203668820useCaseSelect" name="Select Curso">
+		<generalization xmi:id="_0.3443136228264697" general="_1203668820useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1203668820useCaseSelectAll" name="Select All Curso">
+		<generalization xmi:id="_0.2187562809222935" general="_1203668820useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1203668820useCaseSelectAllOrder" name="Select All Order Curso">
+		<generalization xmi:id="_0.22333293740584947" general="_1203668820useCaseManage"/>
+		<extend xmi:id="_0.7816221969754595" extendedCase="_1203668820useCaseSelectAll"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1203668820useCaseSearch" name="Search Curso">
+		<generalization xmi:id="_0.9650245322418994" general="_1203668820useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1203668820useCaseUpdate" name="Update Curso">
+		<generalization xmi:id="_0.7439853109246276" general="_1203668820useCaseManage"/>
+		<include xmi:id="_0.3092669300763171" addition="_1203668820useCaseSelect"/>
+		<extend xmi:id="_0.11074769814645935" extendedCase="_1203668820useCaseSelectAll"/>
+		<extend xmi:id="_0.7004005268139689" extendedCase="_1203668820useCaseSelectAllOrder"/>
+		<extend xmi:id="_0.9616122506175865" extendedCase="_1203668820useCaseSearch"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_1197798245actor_1203668820useCaseInsert" memberEnd="_1197798245actorSource _1203668820useCaseInsertTarget">
+		<ownedEnd xmi:id="_1197798245actorSource" type="_1197798245actor" association="_1197798245actor_1203668820useCaseInsert"/>
+		<ownedEnd xmi:id="_1203668820useCaseInsertTarget" type="_1203668820useCaseInsert" association="_1197798245actor_1203668820useCaseInsert"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_1197798245actor_1203668820useCaseSelectAll" memberEnd="_1197798245actorSource _1203668820useCaseSelectAllTarget">
+		<ownedEnd xmi:id="_1197798245actorSource" type="_1197798245actor" association="_1197798245actor_1203668820useCaseSelectAll"/>
+		<ownedEnd xmi:id="_1203668820useCaseSelectAllTarget" type="_1203668820useCaseSelectAll" association="_1197798245actor_1203668820useCaseSelectAll"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_1197798245actor_1203668820useCaseSearch" memberEnd="_1197798245actorSource _1203668820useCaseSearchTarget">
+		<ownedEnd xmi:id="_1197798245actorSource" type="_1197798245actor" association="_1197798245actor_1203668820useCaseSearch"/>
+		<ownedEnd xmi:id="_1203668820useCaseSearchTarget" type="_1203668820useCaseSearch" association="_1197798245actor_1203668820useCaseSearch"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1402300939useCaseManage" name="Manage EstadoEstudiante"/>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1402300939useCaseInsert" name="Insert EstadoEstudiante">
+		<generalization xmi:id="_0.6804495292694269" general="_1402300939useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1402300939useCaseSelect" name="Select Estado Estudiante">
+		<generalization xmi:id="_0.23737547077592025" general="_1402300939useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1402300939useCaseSelectAll" name="Select All Estado Estudiante">
+		<generalization xmi:id="_0.5681397664396061" general="_1402300939useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1402300939useCaseSelectAllOrder" name="Select All Order Estado Estudiante">
+		<generalization xmi:id="_0.2655200564871789" general="_1402300939useCaseManage"/>
+		<extend xmi:id="_0.21592201973991543" extendedCase="_1402300939useCaseSelectAll"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1402300939useCaseSearch" name="Search Estado Estudiante">
+		<generalization xmi:id="_0.7643941166070789" general="_1402300939useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1402300939useCaseUpdate" name="Update Estado Estudiante">
+		<generalization xmi:id="_0.5439526852557057" general="_1402300939useCaseManage"/>
+		<include xmi:id="_0.5329491435050936" addition="_1402300939useCaseSelect"/>
+		<extend xmi:id="_0.9323732717694292" extendedCase="_1402300939useCaseSelectAll"/>
+		<extend xmi:id="_0.09987740458822114" extendedCase="_1402300939useCaseSelectAllOrder"/>
+		<extend xmi:id="_0.7559919593870827" extendedCase="_1402300939useCaseSearch"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_1197798245actor_1402300939useCaseInsert" memberEnd="_1197798245actorSource _1402300939useCaseInsertTarget">
+		<ownedEnd xmi:id="_1197798245actorSource" type="_1197798245actor" association="_1197798245actor_1402300939useCaseInsert"/>
+		<ownedEnd xmi:id="_1402300939useCaseInsertTarget" type="_1402300939useCaseInsert" association="_1197798245actor_1402300939useCaseInsert"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_1197798245actor_1402300939useCaseSelectAll" memberEnd="_1197798245actorSource _1402300939useCaseSelectAllTarget">
+		<ownedEnd xmi:id="_1197798245actorSource" type="_1197798245actor" association="_1197798245actor_1402300939useCaseSelectAll"/>
+		<ownedEnd xmi:id="_1402300939useCaseSelectAllTarget" type="_1402300939useCaseSelectAll" association="_1197798245actor_1402300939useCaseSelectAll"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_1197798245actor_1402300939useCaseSearch" memberEnd="_1197798245actorSource _1402300939useCaseSearchTarget">
+		<ownedEnd xmi:id="_1197798245actorSource" type="_1197798245actor" association="_1197798245actor_1402300939useCaseSearch"/>
+		<ownedEnd xmi:id="_1402300939useCaseSearchTarget" type="_1402300939useCaseSearch" association="_1197798245actor_1402300939useCaseSearch"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1355787011useCaseManage" name="Manage Area"/>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1355787011useCaseInsert" name="Insert Area">
+		<generalization xmi:id="_0.9683273769010857" general="_1355787011useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1355787011useCaseSelect" name="Select Area">
+		<generalization xmi:id="_0.9789585891478133" general="_1355787011useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1355787011useCaseSelectAll" name="Select All Area">
+		<generalization xmi:id="_0.3371011364380332" general="_1355787011useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1355787011useCaseSelectAllOrder" name="Select All Order Area">
+		<generalization xmi:id="_0.9172140402860617" general="_1355787011useCaseManage"/>
+		<extend xmi:id="_0.03388563564513203" extendedCase="_1355787011useCaseSelectAll"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1355787011useCaseSearch" name="Search Area">
+		<generalization xmi:id="_0.914987029986562" general="_1355787011useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1355787011useCaseUpdate" name="Update Area">
+		<generalization xmi:id="_0.9788068024453882" general="_1355787011useCaseManage"/>
+		<include xmi:id="_0.6756339542186451" addition="_1355787011useCaseSelect"/>
+		<extend xmi:id="_0.5662101395653666" extendedCase="_1355787011useCaseSelectAll"/>
+		<extend xmi:id="_0.5095214192874603" extendedCase="_1355787011useCaseSelectAllOrder"/>
+		<extend xmi:id="_0.5584770027570367" extendedCase="_1355787011useCaseSearch"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_1197798245actor_1355787011useCaseInsert" memberEnd="_1197798245actorSource _1355787011useCaseInsertTarget">
+		<ownedEnd xmi:id="_1197798245actorSource" type="_1197798245actor" association="_1197798245actor_1355787011useCaseInsert"/>
+		<ownedEnd xmi:id="_1355787011useCaseInsertTarget" type="_1355787011useCaseInsert" association="_1197798245actor_1355787011useCaseInsert"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_1197798245actor_1355787011useCaseSelectAll" memberEnd="_1197798245actorSource _1355787011useCaseSelectAllTarget">
+		<ownedEnd xmi:id="_1197798245actorSource" type="_1197798245actor" association="_1197798245actor_1355787011useCaseSelectAll"/>
+		<ownedEnd xmi:id="_1355787011useCaseSelectAllTarget" type="_1355787011useCaseSelectAll" association="_1197798245actor_1355787011useCaseSelectAll"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_1197798245actor_1355787011useCaseSearch" memberEnd="_1197798245actorSource _1355787011useCaseSearchTarget">
+		<ownedEnd xmi:id="_1197798245actorSource" type="_1197798245actor" association="_1197798245actor_1355787011useCaseSearch"/>
+		<ownedEnd xmi:id="_1355787011useCaseSearchTarget" type="_1355787011useCaseSearch" association="_1197798245actor_1355787011useCaseSearch"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_690591388useCaseManage" name="Manage Asignatura"/>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_690591388useCaseInsert" name="Insert Asignatura">
+		<generalization xmi:id="_0.5009121196200657" general="_690591388useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_690591388useCaseSelect" name="Select Asignatura">
+		<generalization xmi:id="_0.21792246305734564" general="_690591388useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_690591388useCaseSelectAll" name="Select All Asignatura">
+		<generalization xmi:id="_0.006036465842048089" general="_690591388useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_690591388useCaseSelectAllOrder" name="Select All Order Asignatura">
+		<generalization xmi:id="_0.6420516933998464" general="_690591388useCaseManage"/>
+		<extend xmi:id="_0.4454388385270872" extendedCase="_690591388useCaseSelectAll"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_690591388useCaseSearch" name="Search Asignatura">
+		<generalization xmi:id="_0.4349667927373977" general="_690591388useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_690591388useCaseUpdate" name="Update Asignatura">
+		<generalization xmi:id="_0.7806327766607631" general="_690591388useCaseManage"/>
+		<include xmi:id="_0.6554280114502402" addition="_690591388useCaseSelect"/>
+		<extend xmi:id="_0.6190577883109104" extendedCase="_690591388useCaseSelectAll"/>
+		<extend xmi:id="_0.2825234911109664" extendedCase="_690591388useCaseSelectAllOrder"/>
+		<extend xmi:id="_0.5889051494922322" extendedCase="_690591388useCaseSearch"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_1197798245actor_690591388useCaseInsert" memberEnd="_1197798245actorSource _690591388useCaseInsertTarget">
+		<ownedEnd xmi:id="_1197798245actorSource" type="_1197798245actor" association="_1197798245actor_690591388useCaseInsert"/>
+		<ownedEnd xmi:id="_690591388useCaseInsertTarget" type="_690591388useCaseInsert" association="_1197798245actor_690591388useCaseInsert"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_1197798245actor_690591388useCaseSelectAll" memberEnd="_1197798245actorSource _690591388useCaseSelectAllTarget">
+		<ownedEnd xmi:id="_1197798245actorSource" type="_1197798245actor" association="_1197798245actor_690591388useCaseSelectAll"/>
+		<ownedEnd xmi:id="_690591388useCaseSelectAllTarget" type="_690591388useCaseSelectAll" association="_1197798245actor_690591388useCaseSelectAll"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_1197798245actor_690591388useCaseSearch" memberEnd="_1197798245actorSource _690591388useCaseSearchTarget">
+		<ownedEnd xmi:id="_1197798245actorSource" type="_1197798245actor" association="_1197798245actor_690591388useCaseSearch"/>
+		<ownedEnd xmi:id="_690591388useCaseSearchTarget" type="_690591388useCaseSearch" association="_1197798245actor_690591388useCaseSearch"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1864502423useCaseManage" name="Manage Logro"/>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1864502423useCaseInsert" name="Insert Logro">
+		<generalization xmi:id="_0.4762510365033371" general="_1864502423useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1864502423useCaseSelect" name="Select Logro">
+		<generalization xmi:id="_0.498797345122153" general="_1864502423useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1864502423useCaseSelectAll" name="Select All Logro">
+		<generalization xmi:id="_0.5663564662149955" general="_1864502423useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1864502423useCaseSelectAllOrder" name="Select All Order Logro">
+		<generalization xmi:id="_0.14441598377881826" general="_1864502423useCaseManage"/>
+		<extend xmi:id="_0.7529164336582039" extendedCase="_1864502423useCaseSelectAll"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1864502423useCaseSearch" name="Search Logro">
+		<generalization xmi:id="_0.2584545729580261" general="_1864502423useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1864502423useCaseUpdate" name="Update Logro">
+		<generalization xmi:id="_0.8614416173384905" general="_1864502423useCaseManage"/>
+		<include xmi:id="_0.600825629842951" addition="_1864502423useCaseSelect"/>
+		<extend xmi:id="_0.46937021025713066" extendedCase="_1864502423useCaseSelectAll"/>
+		<extend xmi:id="_0.14760313432129313" extendedCase="_1864502423useCaseSelectAllOrder"/>
+		<extend xmi:id="_0.2560120322172481" extendedCase="_1864502423useCaseSearch"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_1197798245actor_1864502423useCaseInsert" memberEnd="_1197798245actorSource _1864502423useCaseInsertTarget">
+		<ownedEnd xmi:id="_1197798245actorSource" type="_1197798245actor" association="_1197798245actor_1864502423useCaseInsert"/>
+		<ownedEnd xmi:id="_1864502423useCaseInsertTarget" type="_1864502423useCaseInsert" association="_1197798245actor_1864502423useCaseInsert"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_1197798245actor_1864502423useCaseSelectAll" memberEnd="_1197798245actorSource _1864502423useCaseSelectAllTarget">
+		<ownedEnd xmi:id="_1197798245actorSource" type="_1197798245actor" association="_1197798245actor_1864502423useCaseSelectAll"/>
+		<ownedEnd xmi:id="_1864502423useCaseSelectAllTarget" type="_1864502423useCaseSelectAll" association="_1197798245actor_1864502423useCaseSelectAll"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_1197798245actor_1864502423useCaseSearch" memberEnd="_1197798245actorSource _1864502423useCaseSearchTarget">
+		<ownedEnd xmi:id="_1197798245actorSource" type="_1197798245actor" association="_1197798245actor_1864502423useCaseSearch"/>
+		<ownedEnd xmi:id="_1864502423useCaseSearchTarget" type="_1864502423useCaseSearch" association="_1197798245actor_1864502423useCaseSearch"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_636657179useCaseManage" name="Manage TipoLogro"/>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_636657179useCaseInsert" name="Insert TipoLogro">
+		<generalization xmi:id="_0.6200831260759925" general="_636657179useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_636657179useCaseSelect" name="Select Tipo Logro">
+		<generalization xmi:id="_0.36120502973554924" general="_636657179useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_636657179useCaseSelectAll" name="Select All Tipo Logro">
+		<generalization xmi:id="_0.5755738161073282" general="_636657179useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_636657179useCaseSelectAllOrder" name="Select All Order Tipo Logro">
+		<generalization xmi:id="_0.8466953188452113" general="_636657179useCaseManage"/>
+		<extend xmi:id="_0.10068284579118814" extendedCase="_636657179useCaseSelectAll"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_636657179useCaseSearch" name="Search Tipo Logro">
+		<generalization xmi:id="_0.40671621412030046" general="_636657179useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_636657179useCaseUpdate" name="Update Tipo Logro">
+		<generalization xmi:id="_0.9631816585834242" general="_636657179useCaseManage"/>
+		<include xmi:id="_0.279206902246281" addition="_636657179useCaseSelect"/>
+		<extend xmi:id="_0.3128431818559696" extendedCase="_636657179useCaseSelectAll"/>
+		<extend xmi:id="_0.7659948048410202" extendedCase="_636657179useCaseSelectAllOrder"/>
+		<extend xmi:id="_0.6134515348803583" extendedCase="_636657179useCaseSearch"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_1197798245actor_636657179useCaseInsert" memberEnd="_1197798245actorSource _636657179useCaseInsertTarget">
+		<ownedEnd xmi:id="_1197798245actorSource" type="_1197798245actor" association="_1197798245actor_636657179useCaseInsert"/>
+		<ownedEnd xmi:id="_636657179useCaseInsertTarget" type="_636657179useCaseInsert" association="_1197798245actor_636657179useCaseInsert"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_1197798245actor_636657179useCaseSelectAll" memberEnd="_1197798245actorSource _636657179useCaseSelectAllTarget">
+		<ownedEnd xmi:id="_1197798245actorSource" type="_1197798245actor" association="_1197798245actor_636657179useCaseSelectAll"/>
+		<ownedEnd xmi:id="_636657179useCaseSelectAllTarget" type="_636657179useCaseSelectAll" association="_1197798245actor_636657179useCaseSelectAll"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_1197798245actor_636657179useCaseSearch" memberEnd="_1197798245actorSource _636657179useCaseSearchTarget">
+		<ownedEnd xmi:id="_1197798245actorSource" type="_1197798245actor" association="_1197798245actor_636657179useCaseSearch"/>
+		<ownedEnd xmi:id="_636657179useCaseSearchTarget" type="_636657179useCaseSearch" association="_1197798245actor_636657179useCaseSearch"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_446757964useCaseManage" name="Manage LogProfesor"/>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_446757964useCaseInsert" name="Insert LogProfesor">
+		<generalization xmi:id="_0.9191025383808579" general="_446757964useCaseManage"/>
+		<extend xmi:id="_0.14156605491057106" extendedCase="_1197798245useCaseInsert"/>
+		<extend xmi:id="_0.22179939255762526" extendedCase="_1197798245useCaseUpdate"/>
+		<extend xmi:id="_0.8223193571029838" extendedCase="_1233827695useCaseInsert"/>
+		<extend xmi:id="_0.5583823825187162" extendedCase="_1233827695useCaseUpdate"/>
+		<extend xmi:id="_0.3738867612995447" extendedCase="_1203668820useCaseInsert"/>
+		<extend xmi:id="_0.38786194678423525" extendedCase="_1203668820useCaseUpdate"/>
+		<extend xmi:id="_0.20126377056516098" extendedCase="_1402300939useCaseInsert"/>
+		<extend xmi:id="_0.9162777723998439" extendedCase="_1402300939useCaseUpdate"/>
+		<extend xmi:id="_0.48322550472603587" extendedCase="_1355787011useCaseInsert"/>
+		<extend xmi:id="_0.6934473484445663" extendedCase="_1355787011useCaseUpdate"/>
+		<extend xmi:id="_0.7160490227360327" extendedCase="_690591388useCaseInsert"/>
+		<extend xmi:id="_0.5763412221879828" extendedCase="_690591388useCaseUpdate"/>
+		<extend xmi:id="_0.16160385290549273" extendedCase="_1864502423useCaseInsert"/>
+		<extend xmi:id="_0.42740035241669894" extendedCase="_1864502423useCaseUpdate"/>
+		<extend xmi:id="_0.25923626595270854" extendedCase="_636657179useCaseInsert"/>
+		<extend xmi:id="_0.4169988987141826" extendedCase="_636657179useCaseUpdate"/>
+		<extend xmi:id="_0.9295901648552491" extendedCase="_2124871642useCaseInsert"/>
+		<extend xmi:id="_0.9305775657382405" extendedCase="_2124871642useCaseUpdate"/>
+		<extend xmi:id="_0.6688478877100213" extendedCase="_1021120716useCaseInsert"/>
+		<extend xmi:id="_0.03901421419913986" extendedCase="_1021120716useCaseUpdate"/>
+		<extend xmi:id="_0.5141905920309392" extendedCase="_1647418090useCaseInsert"/>
+		<extend xmi:id="_0.36247612277761376" extendedCase="_1647418090useCaseUpdate"/>
+		<extend xmi:id="_0.9815448175674624" extendedCase="_128297118useCaseInsert"/>
+		<extend xmi:id="_0.17084989763821723" extendedCase="_128297118useCaseUpdate"/>
+		<extend xmi:id="_0.3265027675138553" extendedCase="_1102707569useCaseInsert"/>
+		<extend xmi:id="_0.33603516074047757" extendedCase="_1102707569useCaseUpdate"/>
+		<extend xmi:id="_0.365904486555808" extendedCase="_1607336793useCaseInsert"/>
+		<extend xmi:id="_0.5417055202502714" extendedCase="_1607336793useCaseUpdate"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_446757964useCaseSearch" name="Search Log Profesor">
+		<generalization xmi:id="_0.2938016659693975" general="_446757964useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_1197798245actor_446757964useCaseSearch" memberEnd="_1197798245actorSource _446757964useCaseSearchTarget">
+		<ownedEnd xmi:id="_1197798245actorSource" type="_1197798245actor" association="_1197798245actor_446757964useCaseSearch"/>
+		<ownedEnd xmi:id="_446757964useCaseSearchTarget" type="_446757964useCaseSearch" association="_1197798245actor_446757964useCaseSearch"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_2124871642useCaseManage" name="Manage Profesor"/>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_2124871642useCaseInsert" name="Insert Profesor">
+		<generalization xmi:id="_0.11399979998270604" general="_2124871642useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_2124871642useCaseSelect" name="Select Profesor">
+		<generalization xmi:id="_0.6198627877763969" general="_2124871642useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_2124871642useCaseSelectAll" name="Select All Profesor">
+		<generalization xmi:id="_0.25204559444728847" general="_2124871642useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_2124871642useCaseSelectAllOrder" name="Select All Order Profesor">
+		<generalization xmi:id="_0.5048284076069117" general="_2124871642useCaseManage"/>
+		<extend xmi:id="_0.9909016038590497" extendedCase="_2124871642useCaseSelectAll"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_2124871642useCaseSearch" name="Search Profesor">
+		<generalization xmi:id="_0.3361106266467073" general="_2124871642useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_2124871642useCaseUpdate" name="Update Profesor">
+		<generalization xmi:id="_0.2427235126468903" general="_2124871642useCaseManage"/>
+		<include xmi:id="_0.6124040647590954" addition="_2124871642useCaseSelect"/>
+		<extend xmi:id="_0.9466233742671202" extendedCase="_2124871642useCaseSelectAll"/>
+		<extend xmi:id="_0.8402116694396567" extendedCase="_2124871642useCaseSelectAllOrder"/>
+		<extend xmi:id="_0.06634486762213287" extendedCase="_2124871642useCaseSearch"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_2124871642useCaseEditProfile" name="Edit Profile Profesor">
+		<generalization xmi:id="_0.7040927636390661" general="_2124871642useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_2124871642useCaseUpdatePassword" name="Update Password Profesor">
+		<generalization xmi:id="_0.6506809727541897" general="_2124871642useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_2124871642actor_2124871642useCaseEditProfile" memberEnd="_2124871642actorSource _2124871642useCaseEditProfileTarget">
+		<ownedEnd xmi:id="_2124871642actorSource" type="_2124871642actor" association="_2124871642actor_2124871642useCaseEditProfile"/>
+		<ownedEnd xmi:id="_2124871642useCaseEditProfileTarget" type="_2124871642useCaseEditProfile" association="_2124871642actor_2124871642useCaseEditProfile"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_2124871642actor_2124871642useCaseUpdatePassword" memberEnd="_2124871642actorSource _2124871642useCaseUpdatePasswordTarget">
+		<ownedEnd xmi:id="_2124871642actorSource" type="_2124871642actor" association="_2124871642actor_2124871642useCaseUpdatePassword"/>
+		<ownedEnd xmi:id="_2124871642useCaseUpdatePasswordTarget" type="_2124871642useCaseUpdatePassword" association="_2124871642actor_2124871642useCaseUpdatePassword"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_1197798245actor_2124871642useCaseInsert" memberEnd="_1197798245actorSource _2124871642useCaseInsertTarget">
+		<ownedEnd xmi:id="_1197798245actorSource" type="_1197798245actor" association="_1197798245actor_2124871642useCaseInsert"/>
+		<ownedEnd xmi:id="_2124871642useCaseInsertTarget" type="_2124871642useCaseInsert" association="_1197798245actor_2124871642useCaseInsert"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_1197798245actor_2124871642useCaseSelectAll" memberEnd="_1197798245actorSource _2124871642useCaseSelectAllTarget">
+		<ownedEnd xmi:id="_1197798245actorSource" type="_1197798245actor" association="_1197798245actor_2124871642useCaseSelectAll"/>
+		<ownedEnd xmi:id="_2124871642useCaseSelectAllTarget" type="_2124871642useCaseSelectAll" association="_1197798245actor_2124871642useCaseSelectAll"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_1197798245actor_2124871642useCaseSearch" memberEnd="_1197798245actorSource _2124871642useCaseSearchTarget">
+		<ownedEnd xmi:id="_1197798245actorSource" type="_1197798245actor" association="_1197798245actor_2124871642useCaseSearch"/>
+		<ownedEnd xmi:id="_2124871642useCaseSearchTarget" type="_2124871642useCaseSearch" association="_1197798245actor_2124871642useCaseSearch"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1021120716useCaseManage" name="Manage CursoAsignaturaProfesor"/>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1021120716useCaseInsert" name="Insert CursoAsignaturaProfesor">
+		<generalization xmi:id="_0.7884347557511586" general="_1021120716useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1021120716useCaseSelect" name="Select Curso Asignatura Profesor">
+		<generalization xmi:id="_0.79830293118328" general="_1021120716useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1021120716useCaseSelectAll" name="Select All Curso Asignatura Profesor">
+		<generalization xmi:id="_0.3994890082265927" general="_1021120716useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1021120716useCaseSelectAllOrder" name="Select All Order Curso Asignatura Profesor">
+		<generalization xmi:id="_0.42076736478401944" general="_1021120716useCaseManage"/>
+		<extend xmi:id="_0.8757711508342689" extendedCase="_1021120716useCaseSelectAll"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1021120716useCaseSearch" name="Search Curso Asignatura Profesor">
+		<generalization xmi:id="_0.5899584879540357" general="_1021120716useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1021120716useCaseUpdate" name="Update Curso Asignatura Profesor">
+		<generalization xmi:id="_0.2618066600524158" general="_1021120716useCaseManage"/>
+		<include xmi:id="_0.7947699736572601" addition="_1021120716useCaseSelect"/>
+		<extend xmi:id="_0.44933282601579216" extendedCase="_1021120716useCaseSelectAll"/>
+		<extend xmi:id="_0.06272479765992478" extendedCase="_1021120716useCaseSelectAllOrder"/>
+		<extend xmi:id="_0.22179792982166746" extendedCase="_1021120716useCaseSearch"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_1197798245actor_1021120716useCaseInsert" memberEnd="_1197798245actorSource _1021120716useCaseInsertTarget">
+		<ownedEnd xmi:id="_1197798245actorSource" type="_1197798245actor" association="_1197798245actor_1021120716useCaseInsert"/>
+		<ownedEnd xmi:id="_1021120716useCaseInsertTarget" type="_1021120716useCaseInsert" association="_1197798245actor_1021120716useCaseInsert"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_1197798245actor_1021120716useCaseSelectAll" memberEnd="_1197798245actorSource _1021120716useCaseSelectAllTarget">
+		<ownedEnd xmi:id="_1197798245actorSource" type="_1197798245actor" association="_1197798245actor_1021120716useCaseSelectAll"/>
+		<ownedEnd xmi:id="_1021120716useCaseSelectAllTarget" type="_1021120716useCaseSelectAll" association="_1197798245actor_1021120716useCaseSelectAll"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_1197798245actor_1021120716useCaseSearch" memberEnd="_1197798245actorSource _1021120716useCaseSearchTarget">
+		<ownedEnd xmi:id="_1197798245actorSource" type="_1197798245actor" association="_1197798245actor_1021120716useCaseSearch"/>
+		<ownedEnd xmi:id="_1021120716useCaseSearchTarget" type="_1021120716useCaseSearch" association="_1197798245actor_1021120716useCaseSearch"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1647418090useCaseManage" name="Manage Periodo"/>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1647418090useCaseInsert" name="Insert Periodo">
+		<generalization xmi:id="_0.9623850994274912" general="_1647418090useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1647418090useCaseSelect" name="Select Periodo">
+		<generalization xmi:id="_0.9483050578018221" general="_1647418090useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1647418090useCaseSelectAll" name="Select All Periodo">
+		<generalization xmi:id="_0.46935777221221175" general="_1647418090useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1647418090useCaseSelectAllOrder" name="Select All Order Periodo">
+		<generalization xmi:id="_0.6036325628380256" general="_1647418090useCaseManage"/>
+		<extend xmi:id="_0.4206177776586285" extendedCase="_1647418090useCaseSelectAll"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1647418090useCaseSearch" name="Search Periodo">
+		<generalization xmi:id="_0.9988531300499965" general="_1647418090useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1647418090useCaseUpdate" name="Update Periodo">
+		<generalization xmi:id="_0.30754051947030603" general="_1647418090useCaseManage"/>
+		<include xmi:id="_0.5152188634607321" addition="_1647418090useCaseSelect"/>
+		<extend xmi:id="_0.8668698623598472" extendedCase="_1647418090useCaseSelectAll"/>
+		<extend xmi:id="_0.6808590024533439" extendedCase="_1647418090useCaseSelectAllOrder"/>
+		<extend xmi:id="_0.8608904176141136" extendedCase="_1647418090useCaseSearch"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_1197798245actor_1647418090useCaseInsert" memberEnd="_1197798245actorSource _1647418090useCaseInsertTarget">
+		<ownedEnd xmi:id="_1197798245actorSource" type="_1197798245actor" association="_1197798245actor_1647418090useCaseInsert"/>
+		<ownedEnd xmi:id="_1647418090useCaseInsertTarget" type="_1647418090useCaseInsert" association="_1197798245actor_1647418090useCaseInsert"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_1197798245actor_1647418090useCaseSelectAll" memberEnd="_1197798245actorSource _1647418090useCaseSelectAllTarget">
+		<ownedEnd xmi:id="_1197798245actorSource" type="_1197798245actor" association="_1197798245actor_1647418090useCaseSelectAll"/>
+		<ownedEnd xmi:id="_1647418090useCaseSelectAllTarget" type="_1647418090useCaseSelectAll" association="_1197798245actor_1647418090useCaseSelectAll"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_1197798245actor_1647418090useCaseSearch" memberEnd="_1197798245actorSource _1647418090useCaseSearchTarget">
+		<ownedEnd xmi:id="_1197798245actorSource" type="_1197798245actor" association="_1197798245actor_1647418090useCaseSearch"/>
+		<ownedEnd xmi:id="_1647418090useCaseSearchTarget" type="_1647418090useCaseSearch" association="_1197798245actor_1647418090useCaseSearch"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_128297118useCaseManage" name="Manage Calificacion"/>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_128297118useCaseInsert" name="Insert Calificacion">
+		<generalization xmi:id="_0.8195498705910761" general="_128297118useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_128297118useCaseSelect" name="Select Calificacion">
+		<generalization xmi:id="_0.5239821099172852" general="_128297118useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_128297118useCaseSelectAll" name="Select All Calificacion">
+		<generalization xmi:id="_0.953091141473542" general="_128297118useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_128297118useCaseSelectAllOrder" name="Select All Order Calificacion">
+		<generalization xmi:id="_0.9638059915668648" general="_128297118useCaseManage"/>
+		<extend xmi:id="_0.6390094641120457" extendedCase="_128297118useCaseSelectAll"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_128297118useCaseSearch" name="Search Calificacion">
+		<generalization xmi:id="_0.8035114757183722" general="_128297118useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_128297118useCaseUpdate" name="Update Calificacion">
+		<generalization xmi:id="_0.4743864804607363" general="_128297118useCaseManage"/>
+		<include xmi:id="_0.13910973805304416" addition="_128297118useCaseSelect"/>
+		<extend xmi:id="_0.3611748387247774" extendedCase="_128297118useCaseSelectAll"/>
+		<extend xmi:id="_0.4566877354468085" extendedCase="_128297118useCaseSelectAllOrder"/>
+		<extend xmi:id="_0.09065072383965289" extendedCase="_128297118useCaseSearch"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_1197798245actor_128297118useCaseInsert" memberEnd="_1197798245actorSource _128297118useCaseInsertTarget">
+		<ownedEnd xmi:id="_1197798245actorSource" type="_1197798245actor" association="_1197798245actor_128297118useCaseInsert"/>
+		<ownedEnd xmi:id="_128297118useCaseInsertTarget" type="_128297118useCaseInsert" association="_1197798245actor_128297118useCaseInsert"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_1197798245actor_128297118useCaseSelectAll" memberEnd="_1197798245actorSource _128297118useCaseSelectAllTarget">
+		<ownedEnd xmi:id="_1197798245actorSource" type="_1197798245actor" association="_1197798245actor_128297118useCaseSelectAll"/>
+		<ownedEnd xmi:id="_128297118useCaseSelectAllTarget" type="_128297118useCaseSelectAll" association="_1197798245actor_128297118useCaseSelectAll"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_1197798245actor_128297118useCaseSearch" memberEnd="_1197798245actorSource _128297118useCaseSearchTarget">
+		<ownedEnd xmi:id="_1197798245actorSource" type="_1197798245actor" association="_1197798245actor_128297118useCaseSearch"/>
+		<ownedEnd xmi:id="_128297118useCaseSearchTarget" type="_128297118useCaseSearch" association="_1197798245actor_128297118useCaseSearch"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1102707569useCaseManage" name="Manage TipoCalificacion"/>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1102707569useCaseInsert" name="Insert TipoCalificacion">
+		<generalization xmi:id="_0.14123244861437512" general="_1102707569useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1102707569useCaseSelect" name="Select Tipo Calificacion">
+		<generalization xmi:id="_0.4125030902963719" general="_1102707569useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1102707569useCaseSelectAll" name="Select All Tipo Calificacion">
+		<generalization xmi:id="_0.136908304556575" general="_1102707569useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1102707569useCaseSelectAllOrder" name="Select All Order Tipo Calificacion">
+		<generalization xmi:id="_0.07095931332322813" general="_1102707569useCaseManage"/>
+		<extend xmi:id="_0.8527234224546131" extendedCase="_1102707569useCaseSelectAll"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1102707569useCaseSearch" name="Search Tipo Calificacion">
+		<generalization xmi:id="_0.6453916786380557" general="_1102707569useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1102707569useCaseUpdate" name="Update Tipo Calificacion">
+		<generalization xmi:id="_0.6032937719796321" general="_1102707569useCaseManage"/>
+		<include xmi:id="_0.7707680159665671" addition="_1102707569useCaseSelect"/>
+		<extend xmi:id="_0.4281598691899474" extendedCase="_1102707569useCaseSelectAll"/>
+		<extend xmi:id="_0.0444537843555739" extendedCase="_1102707569useCaseSelectAllOrder"/>
+		<extend xmi:id="_0.6317411993409311" extendedCase="_1102707569useCaseSearch"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_1197798245actor_1102707569useCaseInsert" memberEnd="_1197798245actorSource _1102707569useCaseInsertTarget">
+		<ownedEnd xmi:id="_1197798245actorSource" type="_1197798245actor" association="_1197798245actor_1102707569useCaseInsert"/>
+		<ownedEnd xmi:id="_1102707569useCaseInsertTarget" type="_1102707569useCaseInsert" association="_1197798245actor_1102707569useCaseInsert"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_1197798245actor_1102707569useCaseSelectAll" memberEnd="_1197798245actorSource _1102707569useCaseSelectAllTarget">
+		<ownedEnd xmi:id="_1197798245actorSource" type="_1197798245actor" association="_1197798245actor_1102707569useCaseSelectAll"/>
+		<ownedEnd xmi:id="_1102707569useCaseSelectAllTarget" type="_1102707569useCaseSelectAll" association="_1197798245actor_1102707569useCaseSelectAll"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_1197798245actor_1102707569useCaseSearch" memberEnd="_1197798245actorSource _1102707569useCaseSearchTarget">
+		<ownedEnd xmi:id="_1197798245actorSource" type="_1197798245actor" association="_1197798245actor_1102707569useCaseSearch"/>
+		<ownedEnd xmi:id="_1102707569useCaseSearchTarget" type="_1102707569useCaseSearch" association="_1197798245actor_1102707569useCaseSearch"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1868167606useCaseManage" name="Manage LogSecretaria"/>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1868167606useCaseInsert" name="Insert LogSecretaria">
+		<generalization xmi:id="_0.7762189317690432" general="_1868167606useCaseManage"/>
+		<extend xmi:id="_0.557068311887895" extendedCase="_1197798245useCaseInsert"/>
+		<extend xmi:id="_0.5994508111131781" extendedCase="_1197798245useCaseUpdate"/>
+		<extend xmi:id="_0.06807572769506065" extendedCase="_1233827695useCaseInsert"/>
+		<extend xmi:id="_0.7407539776103631" extendedCase="_1233827695useCaseUpdate"/>
+		<extend xmi:id="_0.7262594826722287" extendedCase="_1203668820useCaseInsert"/>
+		<extend xmi:id="_0.6151769288400866" extendedCase="_1203668820useCaseUpdate"/>
+		<extend xmi:id="_0.3573154917180449" extendedCase="_1402300939useCaseInsert"/>
+		<extend xmi:id="_0.06372444883480732" extendedCase="_1402300939useCaseUpdate"/>
+		<extend xmi:id="_0.4020172189452832" extendedCase="_1355787011useCaseInsert"/>
+		<extend xmi:id="_0.43269068907845365" extendedCase="_1355787011useCaseUpdate"/>
+		<extend xmi:id="_0.313728910379825" extendedCase="_690591388useCaseInsert"/>
+		<extend xmi:id="_0.2804122685905447" extendedCase="_690591388useCaseUpdate"/>
+		<extend xmi:id="_0.12387151595514745" extendedCase="_1864502423useCaseInsert"/>
+		<extend xmi:id="_0.5216414372194986" extendedCase="_1864502423useCaseUpdate"/>
+		<extend xmi:id="_0.8582771927947672" extendedCase="_636657179useCaseInsert"/>
+		<extend xmi:id="_0.533854205047408" extendedCase="_636657179useCaseUpdate"/>
+		<extend xmi:id="_0.6042240848512201" extendedCase="_2124871642useCaseInsert"/>
+		<extend xmi:id="_0.17003944468365806" extendedCase="_2124871642useCaseUpdate"/>
+		<extend xmi:id="_0.9431992324664926" extendedCase="_1021120716useCaseInsert"/>
+		<extend xmi:id="_0.7810882888389691" extendedCase="_1021120716useCaseUpdate"/>
+		<extend xmi:id="_0.061884499660771475" extendedCase="_1647418090useCaseInsert"/>
+		<extend xmi:id="_0.5456698176829282" extendedCase="_1647418090useCaseUpdate"/>
+		<extend xmi:id="_0.9079099939339358" extendedCase="_128297118useCaseInsert"/>
+		<extend xmi:id="_0.44991650328283217" extendedCase="_128297118useCaseUpdate"/>
+		<extend xmi:id="_0.18261392249689035" extendedCase="_1102707569useCaseInsert"/>
+		<extend xmi:id="_0.732452589558804" extendedCase="_1102707569useCaseUpdate"/>
+		<extend xmi:id="_0.06604766363775505" extendedCase="_1607336793useCaseInsert"/>
+		<extend xmi:id="_0.10700594072489966" extendedCase="_1607336793useCaseUpdate"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1868167606useCaseSearch" name="Search Log Secretaria">
+		<generalization xmi:id="_0.29606218903023873" general="_1868167606useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_1197798245actor_1868167606useCaseSearch" memberEnd="_1197798245actorSource _1868167606useCaseSearchTarget">
+		<ownedEnd xmi:id="_1197798245actorSource" type="_1197798245actor" association="_1197798245actor_1868167606useCaseSearch"/>
+		<ownedEnd xmi:id="_1868167606useCaseSearchTarget" type="_1868167606useCaseSearch" association="_1197798245actor_1868167606useCaseSearch"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1607336793useCaseManage" name="Manage Secretaria"/>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1607336793useCaseInsert" name="Insert Secretaria">
+		<generalization xmi:id="_0.4554024227188431" general="_1607336793useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1607336793useCaseSelect" name="Select Secretaria">
+		<generalization xmi:id="_0.4104187648228599" general="_1607336793useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1607336793useCaseSelectAll" name="Select All Secretaria">
+		<generalization xmi:id="_0.32412628278192024" general="_1607336793useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1607336793useCaseSelectAllOrder" name="Select All Order Secretaria">
+		<generalization xmi:id="_0.5860234757826106" general="_1607336793useCaseManage"/>
+		<extend xmi:id="_0.5994428965440367" extendedCase="_1607336793useCaseSelectAll"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1607336793useCaseSearch" name="Search Secretaria">
+		<generalization xmi:id="_0.940754616212227" general="_1607336793useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1607336793useCaseUpdate" name="Update Secretaria">
+		<generalization xmi:id="_0.3365481273912867" general="_1607336793useCaseManage"/>
+		<include xmi:id="_0.4097246054318453" addition="_1607336793useCaseSelect"/>
+		<extend xmi:id="_0.3001822604939104" extendedCase="_1607336793useCaseSelectAll"/>
+		<extend xmi:id="_0.268606409587536" extendedCase="_1607336793useCaseSelectAllOrder"/>
+		<extend xmi:id="_0.27610369576672134" extendedCase="_1607336793useCaseSearch"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1607336793useCaseEditProfile" name="Edit Profile Secretaria">
+		<generalization xmi:id="_0.09189909561906628" general="_1607336793useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:UseCase" xmi:id="_1607336793useCaseUpdatePassword" name="Update Password Secretaria">
+		<generalization xmi:id="_0.3388588929269498" general="_1607336793useCaseManage"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_1607336793actor_1607336793useCaseEditProfile" memberEnd="_1607336793actorSource _1607336793useCaseEditProfileTarget">
+		<ownedEnd xmi:id="_1607336793actorSource" type="_1607336793actor" association="_1607336793actor_1607336793useCaseEditProfile"/>
+		<ownedEnd xmi:id="_1607336793useCaseEditProfileTarget" type="_1607336793useCaseEditProfile" association="_1607336793actor_1607336793useCaseEditProfile"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_1607336793actor_1607336793useCaseUpdatePassword" memberEnd="_1607336793actorSource _1607336793useCaseUpdatePasswordTarget">
+		<ownedEnd xmi:id="_1607336793actorSource" type="_1607336793actor" association="_1607336793actor_1607336793useCaseUpdatePassword"/>
+		<ownedEnd xmi:id="_1607336793useCaseUpdatePasswordTarget" type="_1607336793useCaseUpdatePassword" association="_1607336793actor_1607336793useCaseUpdatePassword"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_1197798245actor_1607336793useCaseInsert" memberEnd="_1197798245actorSource _1607336793useCaseInsertTarget">
+		<ownedEnd xmi:id="_1197798245actorSource" type="_1197798245actor" association="_1197798245actor_1607336793useCaseInsert"/>
+		<ownedEnd xmi:id="_1607336793useCaseInsertTarget" type="_1607336793useCaseInsert" association="_1197798245actor_1607336793useCaseInsert"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_1197798245actor_1607336793useCaseSelectAll" memberEnd="_1197798245actorSource _1607336793useCaseSelectAllTarget">
+		<ownedEnd xmi:id="_1197798245actorSource" type="_1197798245actor" association="_1197798245actor_1607336793useCaseSelectAll"/>
+		<ownedEnd xmi:id="_1607336793useCaseSelectAllTarget" type="_1607336793useCaseSelectAll" association="_1197798245actor_1607336793useCaseSelectAll"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="_1197798245actor_1607336793useCaseSearch" memberEnd="_1197798245actorSource _1607336793useCaseSearchTarget">
+		<ownedEnd xmi:id="_1197798245actorSource" type="_1197798245actor" association="_1197798245actor_1607336793useCaseSearch"/>
+		<ownedEnd xmi:id="_1607336793useCaseSearchTarget" type="_1607336793useCaseSearch" association="_1197798245actor_1607336793useCaseSearch"/>
+	</packagedElement>
+</uml:Model>
