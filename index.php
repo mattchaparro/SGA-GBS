@@ -4,6 +4,7 @@ require("business/Administrator.php");
 require("business/LogAdministrator.php");
 require("business/Estudiante.php");
 require("business/Curso.php");
+require("business/Grado.php");
 require("business/EstadoEstudiante.php");
 require("business/Area.php");
 require("business/Asignatura.php");
@@ -20,6 +21,10 @@ require("business/Secretaria.php");
 ini_set("display_errors","1");
 date_default_timezone_set("America/Bogota");
 $webPages = array(
+	'ui/grado/insertGrado.php',
+	'searchGrado.php',
+	'selectAllGrado.php',
+	'updateGrado.php',
 	'ui/recoverPassword.php',
 	'ui/sessionAdministrator.php',
 	'ui/administrator/insertAdministrator.php',

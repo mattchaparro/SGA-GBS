@@ -13,6 +13,7 @@ $administrator -> select();
 					<a class="dropdown-item" href="index.php?pid=<?php echo base64_encode("ui/administrator/insertAdministrator.php") ?>">Administrator</a>
 					<a class="dropdown-item" href="index.php?pid=<?php echo base64_encode("ui/estudiante/insertEstudiante.php") ?>">Estudiante</a>
 					<a class="dropdown-item" href="index.php?pid=<?php echo base64_encode("ui/curso/insertCurso.php") ?>">Curso</a>
+					<a class="dropdown-item" href="index.php?pid=<?php echo base64_encode("ui/grado/insertGrado.php") ?>">Grado</a>
 					<a class="dropdown-item" href="index.php?pid=<?php echo base64_encode("ui/estadoEstudiante/insertEstadoEstudiante.php") ?>">Estado Estudiante</a>
 					<a class="dropdown-item" href="index.php?pid=<?php echo base64_encode("ui/area/insertArea.php") ?>">Area</a>
 					<a class="dropdown-item" href="index.php?pid=<?php echo base64_encode("ui/asignatura/insertAsignatura.php") ?>">Asignatura</a>
@@ -32,6 +33,7 @@ $administrator -> select();
 					<a class="dropdown-item" href="index.php?pid=<?php echo base64_encode("ui/administrator/selectAllAdministrator.php") ?>">Administrator</a>
 					<a class="dropdown-item" href="index.php?pid=<?php echo base64_encode("ui/estudiante/selectAllEstudiante.php") ?>">Estudiante</a>
 					<a class="dropdown-item" href="index.php?pid=<?php echo base64_encode("ui/curso/selectAllCurso.php") ?>">Curso</a>
+					<a class="dropdown-item" href="index.php?pid=<?php echo base64_encode("ui/grado/selectAllGrado.php") ?>">Grado</a>
 					<a class="dropdown-item" href="index.php?pid=<?php echo base64_encode("ui/estadoEstudiante/selectAllEstadoEstudiante.php") ?>">Estado Estudiante</a>
 					<a class="dropdown-item" href="index.php?pid=<?php echo base64_encode("ui/area/selectAllArea.php") ?>">Area</a>
 					<a class="dropdown-item" href="index.php?pid=<?php echo base64_encode("ui/asignatura/selectAllAsignatura.php") ?>">Asignatura</a>
@@ -51,6 +53,7 @@ $administrator -> select();
 					<a class="dropdown-item" href="index.php?pid=<?php echo base64_encode("ui/administrator/searchAdministrator.php") ?>">Administrator</a>
 					<a class="dropdown-item" href="index.php?pid=<?php echo base64_encode("ui/estudiante/searchEstudiante.php") ?>">Estudiante</a>
 					<a class="dropdown-item" href="index.php?pid=<?php echo base64_encode("ui/curso/searchCurso.php") ?>">Curso</a>
+					<a class="dropdown-item" href="index.php?pid=<?php echo base64_encode("ui/grado/searchGrado.php") ?>">Grado</a>
 					<a class="dropdown-item" href="index.php?pid=<?php echo base64_encode("ui/estadoEstudiante/searchEstadoEstudiante.php") ?>">Estado Estudiante</a>
 					<a class="dropdown-item" href="index.php?pid=<?php echo base64_encode("ui/area/searchArea.php") ?>">Area</a>
 					<a class="dropdown-item" href="index.php?pid=<?php echo base64_encode("ui/asignatura/searchAsignatura.php") ?>">Asignatura</a>

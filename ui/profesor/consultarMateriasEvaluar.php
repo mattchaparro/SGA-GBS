@@ -15,15 +15,14 @@ include('ui/menuProfesor.php');
                                 <div class="col-12 col-md-4 d-flex justify-content-start">
                                     <select class="custom-select" id="filtros">
                                         <option value="" disabled selected>Seleccione un curso</option>
-                                        <option value="1">Parvulos</option>
-                                        <option value="2">Pre-Jardin</option>
-                                        <option value="3">Jardin</option>
-                                        <option value="4">Transición</option>
-                                        <option value="5">Primero</option>
-                                        <option value="6">Segundo</option>
-                                        <option value="7">Tercero</option>
-                                        <option value="8">Cuarto</option>
-                                        <option value="9">Quinto</option>
+                                        <?php 
+                                        $cap =  new CursoAsignaturaProfesor("","","","", $_SESSION['id']);
+                                        $cursos = $cap -> selectAllByProfesor();
+
+                                        foreach ($cursos as $currentCurso) {
+                                            echo "<option value='" . $currentCurso -> getCurso() -> getIdCurso() . "'>" .$currentCurso -> getCurso() -> getNombre() . "</option>";
+                                        }
+                                        ?>
                                     </select>
                                 </div>
                                 <div class="col-12 col-md-5 d-flex justify-content-center justify-content-md-end">
@@ -54,38 +53,7 @@ include('ui/menuProfesor.php');
     $(document).ready(function() {
         $("#filtros").change(function() {
             let dato = parseInt($("#filtros").val());
-            let ruta = "";
-            switch (dato) {
-                case 1:
-                    ruta = "indexAjax.php?pid=<?php echo base64_encode("ui/asignatura/consultarAsignaturasParvulos.php"); ?>"
-                    break;
-                case 2:
-                    ruta = "indexAjax.php?pid=<?php echo base64_encode("ui/asignatura/consultarAsignaturasPreJardin.php"); ?>"
-                    break;
-                case 3:
-                    ruta = "indexAjax.php?pid=<?php echo base64_encode("ui/asignatura/consultarAsignaturasJardin.php"); ?>"
-                    break;
-                case 4:
-                    ruta = "indexAjax.php?pid=<?php echo base64_encode("ui/asignatura/consultarAsignaturasTransicion.php"); ?>"
-                    break;
-                case 5:
-                    ruta = "indexAjax.php?pid=<?php echo base64_encode("ui/asignatura/consultarAsignaturasPrimero.php"); ?>"
-                    break;
-                case 6:
-                    ruta = "indexAjax.php?pid=<?php echo base64_encode("ui/asignatura/consultarAsignaturasSegundo.php"); ?>"
-                    break;
-                case 7:
-                    ruta = "indexAjax.php?pid=<?php echo base64_encode("ui/asignatura/consultarAsignaturasTercero.php"); ?>"
-                    break;
-                case 8:
-                    ruta = "indexAjax.php?pid=<?php echo base64_encode("ui/asignatura/consultarAsignaturasCuarto.php"); ?>"
-                    break;
-                case 9:
-                    ruta = "indexAjax.php?pid=<?php echo base64_encode("ui/asignatura/consultarAsignaturasQuinto.php"); ?>"
-                    break;
-                default:
-            }
-
+            let ruta = "indexAjax.php?pid=<?php echo base64_encode("ui/asignatura/consultarAsignaturasCurso.php"); ?>&idCurso="+ escape(dato);
             $.ajax({
                 type: "get",
                 url: ruta,

@@ -8,6 +8,7 @@ class Logro {
 	private $descripcion;
 	private $asignatura;
 	private $tipoLogro;
+	private $periodo;
 	private $logroDAO;
 	private $connection;
 
@@ -51,13 +52,22 @@ class Logro {
 		$this -> tipoLogro = $pTipoLogro;
 	}
 
-	function Logro($pIdLogro = "", $pNombre = "", $pDescripcion = "", $pAsignatura = "", $pTipoLogro = ""){
+	function getPeriodo() {
+		return $this -> periodo;
+	}
+
+	function setPeriodo($pPeriodo) {
+		$this -> periodo = $pPeriodo;
+	}
+
+	function Logro($pIdLogro = "", $pNombre = "", $pDescripcion = "", $pAsignatura = "", $pTipoLogro = "", $pPeriodo = ""){
 		$this -> idLogro = $pIdLogro;
 		$this -> nombre = $pNombre;
 		$this -> descripcion = $pDescripcion;
 		$this -> asignatura = $pAsignatura;
 		$this -> tipoLogro = $pTipoLogro;
-		$this -> logroDAO = new LogroDAO($this -> idLogro, $this -> nombre, $this -> descripcion, $this -> asignatura, $this -> tipoLogro);
+		$this -> periodo = $pPeriodo;
+		$this -> logroDAO = new LogroDAO($this -> idLogro, $this -> nombre, $this -> descripcion, $this -> asignatura, $this -> tipoLogro, $this -> periodo);
 		$this -> connection = new Connection();
 	}
 
@@ -87,6 +97,9 @@ class Logro {
 		$tipoLogro = new TipoLogro($result[4]);
 		$tipoLogro -> select();
 		$this -> tipoLogro = $tipoLogro;
+		$periodo = new Periodo($result[5]);
+		$periodo -> select();
+		$this -> periodo = $periodo;
 	}
 
 	function selectAll(){
@@ -98,7 +111,9 @@ class Logro {
 			$asignatura -> select();
 			$tipoLogro = new TipoLogro($result[4]);
 			$tipoLogro -> select();
-			array_push($logros, new Logro($result[0], $result[1], $result[2], $asignatura, $tipoLogro));
+			$periodo = new Periodo($result[5]);
+			$periodo -> select();
+			array_push($logros, new Logro($result[0], $result[1], $result[2], $asignatura, $tipoLogro, $periodo));
 		}
 		$this -> connection -> close();
 		return $logros;
@@ -113,11 +128,15 @@ class Logro {
 			$asignatura -> select();
 			$tipoLogro = new TipoLogro($result[4]);
 			$tipoLogro -> select();
-			array_push($logros, new Logro($result[0], $result[1], $result[2], $asignatura, $tipoLogro));
+			$periodo = new Periodo($result[5]);
+			$periodo -> select();
+			array_push($logros, new Logro($result[0], $result[1], $result[2], $asignatura, $tipoLogro, $periodo));
 		}
 		$this -> connection -> close();
 		return $logros;
 	}
+
+
 
 	function selectAllByTipoLogro(){
 		$this -> connection -> open();
@@ -128,7 +147,26 @@ class Logro {
 			$asignatura -> select();
 			$tipoLogro = new TipoLogro($result[4]);
 			$tipoLogro -> select();
-			array_push($logros, new Logro($result[0], $result[1], $result[2], $asignatura, $tipoLogro));
+			$periodo = new Periodo($result[5]);
+			$periodo -> select();
+			array_push($logros, new Logro($result[0], $result[1], $result[2], $asignatura, $tipoLogro, $periodo));
+		}
+		$this -> connection -> close();
+		return $logros;
+	}
+
+	function selectAllByPeriodo(){
+		$this -> connection -> open();
+		$this -> connection -> run($this -> logroDAO -> selectAllByPeriodo());
+		$logros = array();
+		while ($result = $this -> connection -> fetchRow()){
+			$asignatura = new Asignatura($result[3]);
+			$asignatura -> select();
+			$tipoLogro = new TipoLogro($result[4]);
+			$tipoLogro -> select();
+			$periodo = new Periodo($result[5]);
+			$periodo -> select();
+			array_push($logros, new Logro($result[0], $result[1], $result[2], $asignatura, $tipoLogro, $periodo));
 		}
 		$this -> connection -> close();
 		return $logros;
@@ -143,7 +181,9 @@ class Logro {
 			$asignatura -> select();
 			$tipoLogro = new TipoLogro($result[4]);
 			$tipoLogro -> select();
-			array_push($logros, new Logro($result[0], $result[1], $result[2], $asignatura, $tipoLogro));
+			$periodo = new Periodo($result[5]);
+			$periodo -> select();
+			array_push($logros, new Logro($result[0], $result[1], $result[2], $asignatura, $tipoLogro, $periodo));
 		}
 		$this -> connection -> close();
 		return $logros;
@@ -158,7 +198,9 @@ class Logro {
 			$asignatura -> select();
 			$tipoLogro = new TipoLogro($result[4]);
 			$tipoLogro -> select();
-			array_push($logros, new Logro($result[0], $result[1], $result[2], $asignatura, $tipoLogro));
+			$periodo = new Periodo($result[5]);
+			$periodo -> select();
+			array_push($logros, new Logro($result[0], $result[1], $result[2], $asignatura, $tipoLogro, $periodo));
 		}
 		$this -> connection -> close();
 		return $logros;
@@ -173,7 +215,26 @@ class Logro {
 			$asignatura -> select();
 			$tipoLogro = new TipoLogro($result[4]);
 			$tipoLogro -> select();
-			array_push($logros, new Logro($result[0], $result[1], $result[2], $asignatura, $tipoLogro));
+			$periodo = new Periodo($result[5]);
+			$periodo -> select();
+			array_push($logros, new Logro($result[0], $result[1], $result[2], $asignatura, $tipoLogro, $periodo));
+		}
+		$this -> connection -> close();
+		return $logros;
+	}
+
+	function selectAllByPeriodoOrder($order, $dir){
+		$this -> connection -> open();
+		$this -> connection -> run($this -> logroDAO -> selectAllByPeriodoOrder($order, $dir));
+		$logros = array();
+		while ($result = $this -> connection -> fetchRow()){
+			$asignatura = new Asignatura($result[3]);
+			$asignatura -> select();
+			$tipoLogro = new TipoLogro($result[4]);
+			$tipoLogro -> select();
+			$periodo = new Periodo($result[5]);
+			$periodo -> select();
+			array_push($logros, new Logro($result[0], $result[1], $result[2], $asignatura, $tipoLogro, $periodo));
 		}
 		$this -> connection -> close();
 		return $logros;
@@ -188,7 +249,26 @@ class Logro {
 			$asignatura -> select();
 			$tipoLogro = new TipoLogro($result[4]);
 			$tipoLogro -> select();
-			array_push($logros, new Logro($result[0], $result[1], $result[2], $asignatura, $tipoLogro));
+			$periodo = new Periodo($result[5]);
+			$periodo -> select();
+			array_push($logros, new Logro($result[0], $result[1], $result[2], $asignatura, $tipoLogro, $periodo));
+		}
+		$this -> connection -> close();
+		return $logros;
+	}
+
+	function selectAllByAsignaturaPeriodo(){
+		$this -> connection -> open();
+		$this -> connection -> run($this -> logroDAO -> selectAllByAsignaturaPeriodo());
+		$logros = array();
+		while ($result = $this -> connection -> fetchRow()){
+			$asignatura = new Asignatura($result[3]);
+			$asignatura -> select();
+			$tipoLogro = new TipoLogro($result[4]);
+			$tipoLogro -> select();
+			$periodo = new Periodo($result[5]);
+			$periodo -> select();
+			array_push($logros, new Logro($result[0], $result[1], $result[2], $asignatura, $tipoLogro, $periodo));
 		}
 		$this -> connection -> close();
 		return $logros;

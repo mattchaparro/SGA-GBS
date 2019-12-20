@@ -43,7 +43,15 @@ CREATE TABLE Estudiante (
 CREATE TABLE Curso (
 	idCurso int(11) NOT NULL AUTO_INCREMENT,
 	nombre varchar(45) NOT NULL,
+	año date NOT NULL,
+	grado_idGrado int(11) NOT NULL,
 	PRIMARY KEY (idCurso)
+);
+
+CREATE TABLE Grado (
+	idGrado int(11) NOT NULL AUTO_INCREMENT,
+	nombre varchar(45) NOT NULL,
+	PRIMARY KEY (idGrado)
 );
 
 CREATE TABLE EstadoEstudiante (
@@ -72,6 +80,7 @@ CREATE TABLE Logro (
 	descripcion varchar(45) NOT NULL,
 	asignatura_idAsignatura int(11) NOT NULL,
 	tipoLogro_idTipoLogro int(11) NOT NULL,
+	periodo_idPeriodo int(11) NOT NULL,
 	PRIMARY KEY (idLogro)
 );
 
@@ -183,6 +192,9 @@ ALTER TABLE Estudiante
 ALTER TABLE Estudiante
  	ADD FOREIGN KEY (estadoestudiante_idEstadoEstudiante) REFERENCES EstadoEstudiante (idEstadoEstudiante); 
 
+ALTER TABLE Curso
+ 	ADD FOREIGN KEY (grado_idGrado) REFERENCES Grado (idGrado); 
+
 ALTER TABLE Asignatura
  	ADD FOREIGN KEY (area_idArea) REFERENCES Area (idArea); 
 
@@ -191,6 +203,9 @@ ALTER TABLE Logro
 
 ALTER TABLE Logro
  	ADD FOREIGN KEY (tipologro_idTipoLogro) REFERENCES TipoLogro (idTipoLogro); 
+
+ALTER TABLE Logro
+ 	ADD FOREIGN KEY (periodo_idPeriodo) REFERENCES Periodo (idPeriodo); 
 
 ALTER TABLE LogProfesor
  	ADD FOREIGN KEY (profesor_idProfesor) REFERENCES Profesor (idProfesor); 

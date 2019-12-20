@@ -7,14 +7,16 @@ $dir = "";
 if(isset($_GET['dir'])){
 	$dir = $_GET['dir'];
 }
+$grado = new Grado($_GET['idGrado']); 
+$grado -> select();
 ?>
 <div class="container-fluid">
 	<div class="card">
 		<div class="card-header">
-			<h4 class="card-title">Get All Curso</h4>
+			<h4 class="card-title">Get All Curso of Grado: <em><?php echo $grado -> getNombre() ?></em></h4>
 		</div>
 		<div class="card-body">
-		<div class="table-responsive">
+			<div class="table-responsive">
 			<table class="table table-striped table-hover">
 				<thead>
 					<tr><th></th>
@@ -22,28 +24,28 @@ if(isset($_GET['dir'])){
 						<?php if($order=="nombre" && $dir=="asc") { ?>
 							<span class='fas fa-sort-up'></span>
 						<?php } else { ?>
-							<a href='index.php?pid=<?php echo base64_encode("ui/curso/selectAllCurso.php") ?>&order=nombre&dir=asc'>
-							<span class='fas fa-sort-amount-up' data-toggle='tooltip' class='tooltipLink' data-original-title='Sort Ascending' ></span></a>
+							<a data-toggle='tooltip' class='tooltipLink' data-original-title='Sort Ascending' href='index.php?pid=<?php echo base64_encode("ui/curso/selectAllCursoByGrado.php") ?>&idGrado=<?php echo $_GET['idGrado'] ?>&order=nombre&dir=asc'>
+							<span class='fas fa-sort-amount-up'></span></a>
 						<?php } ?>
 						<?php if($order=="nombre" && $dir=="desc") { ?>
 							<span class='fas fa-sort-down'></span>
 						<?php } else { ?>
-							<a href='index.php?pid=<?php echo base64_encode("ui/curso/selectAllCurso.php") ?>&order=nombre&dir=desc'>
-							<span class='fas fa-sort-amount-down' data-toggle='tooltip' class='tooltipLink' data-original-title='Sort Descending' ></span></a>
+							<a data-toggle='tooltip' class='tooltipLink' data-original-title='Sort Descending' href='index.php?pid=<?php echo base64_encode("ui/curso/selectAllCursoByGrado.php") ?>&idGrado=<?php echo $_GET['idGrado'] ?>&order=nombre&dir=desc'>
+							<span class='fas fa-sort-amount-down'></span></a>
 						<?php } ?>
 						</th>
 						<th nowrap>Anio 
 						<?php if($order=="anio" && $dir=="asc") { ?>
 							<span class='fas fa-sort-up'></span>
 						<?php } else { ?>
-							<a href='index.php?pid=<?php echo base64_encode("ui/curso/selectAllCurso.php") ?>&order=anio&dir=asc'>
-							<span class='fas fa-sort-amount-up' data-toggle='tooltip' class='tooltipLink' data-original-title='Sort Ascending' ></span></a>
+							<a data-toggle='tooltip' class='tooltipLink' data-original-title='Sort Ascending' href='index.php?pid=<?php echo base64_encode("ui/curso/selectAllCursoByGrado.php") ?>&idGrado=<?php echo $_GET['idGrado'] ?>&order=anio&dir=asc'>
+							<span class='fas fa-sort-amount-up'></span></a>
 						<?php } ?>
 						<?php if($order=="anio" && $dir=="desc") { ?>
 							<span class='fas fa-sort-down'></span>
 						<?php } else { ?>
-							<a href='index.php?pid=<?php echo base64_encode("ui/curso/selectAllCurso.php") ?>&order=anio&dir=desc'>
-							<span class='fas fa-sort-amount-down' data-toggle='tooltip' class='tooltipLink' data-original-title='Sort Descending' ></span></a>
+							<a data-toggle='tooltip' class='tooltipLink' data-original-title='Sort Descending' href='index.php?pid=<?php echo base64_encode("ui/curso/selectAllCursoByGrado.php") ?>&idGrado=<?php echo $_GET['idGrado'] ?>&order=anio&dir=desc'>
+							<span class='fas fa-sort-amount-down'></span></a>
 						<?php } ?>
 						</th>
 						<th>Grado</th>
@@ -52,11 +54,11 @@ if(isset($_GET['dir'])){
 				</thead>
 				</tbody>
 					<?php
-					$curso = new Curso();
-					if($order != "" && $dir != "") {
-						$cursos = $curso -> selectAllOrder($order, $dir);
+					$curso = new Curso("", "", "", $_GET['idGrado']);
+					if($order!="" && $dir!="") {
+						$cursos = $curso -> selectAllByGradoOrder($order, $dir);
 					} else {
-						$cursos = $curso -> selectAll();
+						$cursos = $curso -> selectAllByGrado();
 					}
 					$counter = 1;
 					foreach ($cursos as $currentCurso) {
@@ -79,7 +81,7 @@ if(isset($_GET['dir'])){
 						echo "</td>";
 						echo "</tr>";
 						$counter++;
-					}
+					};
 					?>
 				</tbody>
 			</table>

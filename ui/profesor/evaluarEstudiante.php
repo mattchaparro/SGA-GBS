@@ -1,5 +1,5 @@
 <?php
-include_once('ui/menuProfesor.php');
+include_once 'ui/menuProfesor.php';
 $idMateria = $_GET['idMateria'];
 $asignatura = new Asignatura($idMateria);
 $asignatura->select();
@@ -10,6 +10,30 @@ if(isset($_GET['order'])){
 $dir = "";
 if(isset($_GET['dir'])){
 	$dir = $_GET['dir'];
+}
+
+if(!isset($_SESSION['inicio'])){
+    $_SESSION['inicio'] = "1";
+}
+
+if(isset($_GET['idEstudiante'])){
+    $idEstudiante = $_GET['idEstudiante'];
+}
+
+if(isset($_POST['subirNota'])){
+    
+    if($_SESSION['inicio'] != $_POST['idf']){
+        $_SESSION['inicio'] = $_POST['idf'];
+        $periodo = $_POST['periodo'];
+        $arrayLogros = $_POST['idLogros'];
+        $notaConceptual = $_POST['notaConceptual'];
+        $notaProcedimental = $_POST['notaProcedimental'];
+        $notaActitudinal = $_POST['notaActitudinal'];
+        $fallas = $_POST['fallas'];
+        $nota = ($notaConceptual + $notaActitudinal + $notaProcedimental);
+        $calificacion = new Calificacion("", $nota, $fallas, 4, $periodo, $idEstudiante, $idMateria);
+        $calificacion -> insert();
+    }
 }
 ?>
 <div class="container-fluid p-2" style="background-color: #EAF1F9; height: 100vh;">
@@ -23,19 +47,11 @@ if(isset($_GET['dir'])){
                                 <div class="col-12  d-flex justify-content-center col-md-5 justify-content-md-start ">
                                     <a class="navbar-brand" href="#"><span class="text-dark"><i class="fas fa-check mr-2"></i>Evaluando materia: <?php echo $asignatura->getNombre(); ?></span></a>
                                 </div>
-                                <div class="col-12 col-md-4 d-flex justify-content-start">
+                                <div class="col-12 col-md-3 d-flex justify-content-start">
 
                                 </div>
-                                <div class="col-12 col-md-3 d-flex justify-content-center justify-content-md-end">
-                                    <span class="mt-2 font-weight-bold mr-2">Periodo </span>
-                                    <select class="custom-select" id="filtros">
-                                        <option value="" disabled selected>Seleccione</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                    </select>
-                                    <div id="msjPeriodo"></div>
+                                <div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-end">
+                                    <span class="mt-2 font-weight-bold">Seleccione estudiante a evaluar</span>
                                 </div>
                             </div>
                         </div>
@@ -144,17 +160,21 @@ if(isset($_GET['dir'])){
                                                 $notaPeriodo2 = $cal -> selectNotaByPeriodo(2);
                                                 $notaPeriodo3 = $cal -> selectNotaByPeriodo(3);
                                                 $notaPeriodo4 = $cal -> selectNotaByPeriodo(4);
-                                              //  $fallasPeriodo1 = $cal -> selectFallasByPeriodo(1); 
+                                                $fallasPeriodo1 = $cal -> selectFallasByPeriodo(1);
+                                                $fallasPeriodo2 = $cal -> selectFallasByPeriodo(2);
+                                                $fallasPeriodo3 = $cal -> selectFallasByPeriodo(3);
+                                                $fallasPeriodo4 = $cal -> selectFallasByPeriodo(4);
+
                                                 echo "<tr><td>" . $counter . "</td>";
                                                 echo "<td>" . $currentEstudiante-> getNombre() . " " . $currentEstudiante -> getApellido() . "</td>";
                                                 echo "<td>" . $notaPeriodo1. "</td>";
-                                                echo "<td>". /*$fallasPeriodo1 .*/ "</td>";
+                                                echo "<td>".  $fallasPeriodo1 .  "</td>";
                                                 echo "<td>" . $notaPeriodo2. "</td>";
-                                                echo "<td> </td>";
+                                                echo "<td>".  $fallasPeriodo2 .   "</td>";
                                                 echo "<td>" . $notaPeriodo3. "</td>";
-                                                echo "<td> </td>";
+                                                echo "<td>".  $fallasPeriodo3 .  " </td>";
                                                 echo "<td>" . $notaPeriodo4. "</td>";
-                                                echo "<td> </td>";
+                                                echo "<td> ".  $fallasPeriodo4 .  "</td>";
                                                 echo "<td class='text-center' nowrap>";
                                                 echo "<a href='modalCalificacion.php?idEstudiante=" . $currentEstudiante -> getIdEstudiante() . "&idAsignatura=". $idMateria ."'  data-toggle='modal' data-target='#modalCalificacion' ><span class='far fa-edit' data-toggle='tooltip' data-placement='left' class='tooltipLink' data-original-title='Calificar Estudiante' ></span></a> ";
                                                 echo "</td>";
@@ -175,6 +195,7 @@ if(isset($_GET['dir'])){
         </div>
     </div>
 </div>
+
 <div class="modal fade" id="modalCalificacion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-lg" >
 		<div class="modal-content" id="modalContent">
@@ -185,5 +206,5 @@ if(isset($_GET['dir'])){
 	$('body').on('show.bs.modal', '.modal', function (e) {
 		var link = $(e.relatedTarget);
 		$(this).find(".modal-content").load(link.attr("href"));
-	});
+	}); 
 </script>

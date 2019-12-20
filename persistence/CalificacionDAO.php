@@ -109,14 +109,12 @@ class CalificacionDAO{
 				where nota like '%" . $search . "%' or fallas like '%" . $search . "%'";
 	}
 
-	
 	function selectNotaByPeriodo($periodo) {
 		return "select nota
 				from calificacion
 				where periodo_idPeriodo = '" . $periodo . "' and tipoCalificacion_idTipoCalificacion = '4'
 				and asignatura_idAsignatura = '" . $this -> asignatura . "' and estudiante_idEstudiante = '" . $this -> estudiante . "'";
 	}
-
 	function selectFallasByPeriodo($periodo) {
 		return "select fallas
 				from calificacion

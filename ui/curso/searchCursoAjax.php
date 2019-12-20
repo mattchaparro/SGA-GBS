@@ -8,6 +8,8 @@
 	<thead>
 		<tr><th></th>
 			<th nowrap>Nombre</th>
+			<th nowrap>Anio</th>
+			<th>Grado</th>
 			<th nowrap></th>
 		</tr>
 	</thead>
@@ -19,6 +21,8 @@
 		foreach ($cursos as $currentCurso) {
 			echo "<tr><td>" . $counter . "</td>";
 			echo "<td>" . str_ireplace($_GET['search'], "<mark>" . $_GET['search'] . "</mark>", $currentCurso -> getNombre()) . "</td>";
+			echo "<td>" . str_ireplace($_GET['search'], "<mark>" . $_GET['search'] . "</mark>", $currentCurso -> getAnio()) . "</td>";
+			echo "<td>" . $currentCurso -> getGrado() -> getNombre() . "</td>";
 						echo "<td class='text-right' nowrap>";
 						if($_GET['entity'] == 'Administrator') {
 							echo "<a href='index.php?pid=" . base64_encode("ui/curso/updateCurso.php") . "&idCurso=" . $currentCurso -> getIdCurso() . "'><span class='fas fa-edit' data-toggle='tooltip' data-placement='left' class='tooltipLink' data-original-title='Edit Curso' ></span></a> ";

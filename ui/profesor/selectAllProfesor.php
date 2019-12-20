@@ -140,3 +140,4 @@ if(isset($_GET['dir'])){
 		$(this).find(".modal-content").load(link.attr("href"));
 	});
 </script>
+

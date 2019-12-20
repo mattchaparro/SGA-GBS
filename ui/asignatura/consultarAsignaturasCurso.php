@@ -1,10 +1,7 @@
 <?php
 session_start();
 $idProfesor = $_SESSION['id'];
-$curso = new Curso();
-$nombre = "Transicion";
-$curso -> selectByNombre($nombre);
-$idCurso = $curso -> getIdCurso();
+$idCurso = $_GET['idCurso'];
 $cursoAsignaturaProfesor = new CursoAsignaturaProfesor("","","","", $idProfesor);
 $cursoAsignaturaProfesors = $cursoAsignaturaProfesor -> selectAllByProfesorCurso($idCurso);
 if(count($cursoAsignaturaProfesors)){ 

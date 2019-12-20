@@ -122,9 +122,7 @@ class CursoAsignaturaProfesor {
 			array_push($cursoAsignaturaProfesors, new CursoAsignaturaProfesor($result[0], $result[1], $curso, $asignatura, $profesor));
 		}
 		$this -> connection -> close();
-
 		return $cursoAsignaturaProfesors;
-		
 	}
 
 	function selectAllByAsignatura(){
@@ -160,24 +158,6 @@ class CursoAsignaturaProfesor {
 		$this -> connection -> close();
 		return $cursoAsignaturaProfesors;
 	}
-
-	function selectAllByProfesorCurso($idCurso){
-		$this -> connection -> open();
-		$this -> connection -> run($this -> cursoAsignaturaProfesorDAO -> selectAllByProfesorCurso($idCurso));
-		$cursoAsignaturaProfesors = array();
-		while ($result = $this -> connection -> fetchRow()){
-			$curso = new Curso($result[2]);
-			$curso -> select();
-			$asignatura = new Asignatura($result[3]);
-			$asignatura -> select();
-			$profesor = new Profesor($result[4]);
-			$profesor -> select();
-			array_push($cursoAsignaturaProfesors, new CursoAsignaturaProfesor($result[0], $result[1], $curso, $asignatura, $profesor));
-		}
-		$this -> connection -> close();
-		return $cursoAsignaturaProfesors;
-	}
-
 
 	function selectAllOrder($order, $dir){
 		$this -> connection -> open();
@@ -250,6 +230,24 @@ class CursoAsignaturaProfesor {
 	function search($search){
 		$this -> connection -> open();
 		$this -> connection -> run($this -> cursoAsignaturaProfesorDAO -> search($search));
+		$cursoAsignaturaProfesors = array();
+		while ($result = $this -> connection -> fetchRow()){
+			$curso = new Curso($result[2]);
+			$curso -> select();
+			$asignatura = new Asignatura($result[3]);
+			$asignatura -> select();
+			$profesor = new Profesor($result[4]);
+			$profesor -> select();
+			array_push($cursoAsignaturaProfesors, new CursoAsignaturaProfesor($result[0], $result[1], $curso, $asignatura, $profesor));
+		}
+		$this -> connection -> close();
+		return $cursoAsignaturaProfesors;
+	}
+
+	function selectAllByProfesorCurso($idCurso){
+		$this -> connection -> open();
+		//echo $this -> cursoAsignaturaProfesorDAO -> selectAllByProfesorCurso($idCurso);
+		$this -> connection -> run($this -> cursoAsignaturaProfesorDAO -> selectAllByProfesorCurso($idCurso));
 		$cursoAsignaturaProfesors = array();
 		while ($result = $this -> connection -> fetchRow()){
 			$curso = new Curso($result[2]);

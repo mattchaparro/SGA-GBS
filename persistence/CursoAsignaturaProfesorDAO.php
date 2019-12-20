@@ -57,12 +57,6 @@ class CursoAsignaturaProfesorDAO{
 				where profesor_idProfesor = '" . $this -> profesor . "'";
 	}
 
-	function selectAllByProfesorCurso($idCurso) {
-		return "select idCursoAsignaturaProfesor, noused, curso_idCurso, asignatura_idAsignatura, profesor_idProfesor
-				from CursoAsignaturaProfesor
-				where curso_idCurso = '".  $idCurso . "'and profesor_idProfesor = '" . $this -> profesor . "'";
-	}
-
 	function selectAllOrder($orden, $dir){
 		return "select idCursoAsignaturaProfesor, noused, curso_idCurso, asignatura_idAsignatura, profesor_idProfesor
 				from CursoAsignaturaProfesor
@@ -94,6 +88,12 @@ class CursoAsignaturaProfesorDAO{
 		return "select idCursoAsignaturaProfesor, noused, curso_idCurso, asignatura_idAsignatura, profesor_idProfesor
 				from CursoAsignaturaProfesor
 				where noused like '%" . $search . "%'";
+	}
+
+	function selectAllByProfesorCurso($idCurso) {
+		return "select idCursoAsignaturaProfesor, noused, curso_idCurso, asignatura_idAsignatura, profesor_idProfesor
+				from CursoAsignaturaProfesor
+				where curso_idCurso = '".  $idCurso . "'and profesor_idProfesor = '" . $this -> profesor . "'";
 	}
 }
 ?>

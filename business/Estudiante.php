@@ -135,7 +135,6 @@ class Estudiante {
 
 	function selectAll(){
 		$this -> connection -> open();
-		echo $this -> estudianteDAO -> selectAll();
 		$this -> connection -> run($this -> estudianteDAO -> selectAll());
 		$estudiantes = array();
 		while ($result = $this -> connection -> fetchRow()){

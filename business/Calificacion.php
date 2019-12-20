@@ -83,6 +83,7 @@ class Calificacion {
 
 	function insert(){
 		$this -> connection -> open();
+		echo $this -> calificacionDAO -> insert();
 		$this -> connection -> run($this -> calificacionDAO -> insert());
 		$this -> connection -> close();
 	}
@@ -335,7 +336,6 @@ class Calificacion {
 		$this -> connection -> close();
 		return $nota;
 	}
-
 	function selectFallasByPeriodo($periodo){
 		$this -> connection -> open();
 		//echo $this -> calificacionDAO -> selectNotaByPeriodo($periodo);

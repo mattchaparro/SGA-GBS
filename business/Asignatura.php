@@ -60,7 +60,6 @@ class Asignatura {
 		$this -> connection -> close();
 		$this -> idAsignatura = $result[0];
 		$this -> nombre = $result[1];
-		$this -> nombre = $result[1];
 		$area = new Area($result[2]);
 		$area -> select();
 		$this -> area = $area;

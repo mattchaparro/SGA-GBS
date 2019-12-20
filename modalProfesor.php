@@ -57,4 +57,6 @@ $profesor -> select();
 			<td><?php echo $profesor -> getState() ?></td>
 		</tr>
 	</table>
+
 </div>
+
