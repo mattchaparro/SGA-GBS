@@ -11,6 +11,7 @@
 			<th nowrap>Fecha_inicio</th>
 			<th nowrap>Fecha_fin</th>
 			<th nowrap>Anio</th>
+			<th nowrap>Encurso</th>
 			<th nowrap></th>
 		</tr>
 	</thead>
@@ -25,6 +26,7 @@
 			echo "<td>" . str_ireplace($_GET['search'], "<mark>" . $_GET['search'] . "</mark>", $currentPeriodo -> getFecha_inicio()) . "</td>";
 			echo "<td>" . str_ireplace($_GET['search'], "<mark>" . $_GET['search'] . "</mark>", $currentPeriodo -> getFecha_fin()) . "</td>";
 			echo "<td>" . str_ireplace($_GET['search'], "<mark>" . $_GET['search'] . "</mark>", $currentPeriodo -> getAnio()) . "</td>";
+			echo "<td>" . str_ireplace($_GET['search'], "<mark>" . $_GET['search'] . "</mark>", $currentPeriodo -> getEncurso()) . "</td>";
 						echo "<td class='text-right' nowrap>";
 						if($_GET['entity'] == 'Administrator') {
 							echo "<a href='index.php?pid=" . base64_encode("ui/periodo/updatePeriodo.php") . "&idPeriodo=" . $currentPeriodo -> getIdPeriodo() . "'><span class='fas fa-edit' data-toggle='tooltip' data-placement='left' class='tooltipLink' data-original-title='Edit Periodo' ></span></a> ";

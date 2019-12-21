@@ -4,6 +4,7 @@ require("business/LogAdministrator.php");
 require("business/Estudiante.php");
 require("business/Curso.php");
 require("business/Grado.php");
+require("business/LogrosCalificacion.php");
 require("business/EstadoEstudiante.php");
 require("business/Area.php");
 require("business/Asignatura.php");

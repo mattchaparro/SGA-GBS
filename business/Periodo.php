@@ -8,6 +8,7 @@ class Periodo {
 	private $fecha_inicio;
 	private $fecha_fin;
 	private $anio;
+	private $encurso;
 	private $periodoDAO;
 	private $connection;
 
@@ -51,13 +52,22 @@ class Periodo {
 		$this -> anio = $pAnio;
 	}
 
-	function Periodo($pIdPeriodo = "", $pOrden = "", $pFecha_inicio = "", $pFecha_fin = "", $pAnio = ""){
+	function getEncurso() {
+		return $this -> encurso;
+	}
+
+	function setEncurso($pEncurso) {
+		$this -> encurso = $pEncurso;
+	}
+
+	function Periodo($pIdPeriodo = "", $pOrden = "", $pFecha_inicio = "", $pFecha_fin = "", $pAnio = "", $pEncurso = ""){
 		$this -> idPeriodo = $pIdPeriodo;
 		$this -> orden = $pOrden;
 		$this -> fecha_inicio = $pFecha_inicio;
 		$this -> fecha_fin = $pFecha_fin;
 		$this -> anio = $pAnio;
-		$this -> periodoDAO = new PeriodoDAO($this -> idPeriodo, $this -> orden, $this -> fecha_inicio, $this -> fecha_fin, $this -> anio);
+		$this -> encurso = $pEncurso;
+		$this -> periodoDAO = new PeriodoDAO($this -> idPeriodo, $this -> orden, $this -> fecha_inicio, $this -> fecha_fin, $this -> anio, $this -> encurso);
 		$this -> connection = new Connection();
 	}
 
@@ -83,6 +93,7 @@ class Periodo {
 		$this -> fecha_inicio = $result[2];
 		$this -> fecha_fin = $result[3];
 		$this -> anio = $result[4];
+		$this -> encurso = $result[5];
 	}
 
 	function selectAll(){
@@ -90,7 +101,7 @@ class Periodo {
 		$this -> connection -> run($this -> periodoDAO -> selectAll());
 		$periodos = array();
 		while ($result = $this -> connection -> fetchRow()){
-			array_push($periodos, new Periodo($result[0], $result[1], $result[2], $result[3], $result[4]));
+			array_push($periodos, new Periodo($result[0], $result[1], $result[2], $result[3], $result[4], $result[5]));
 		}
 		$this -> connection -> close();
 		return $periodos;
@@ -101,7 +112,7 @@ class Periodo {
 		$this -> connection -> run($this -> periodoDAO -> selectAllOrder($order, $dir));
 		$periodos = array();
 		while ($result = $this -> connection -> fetchRow()){
-			array_push($periodos, new Periodo($result[0], $result[1], $result[2], $result[3], $result[4]));
+			array_push($periodos, new Periodo($result[0], $result[1], $result[2], $result[3], $result[4], $result[5]));
 		}
 		$this -> connection -> close();
 		return $periodos;
@@ -112,10 +123,24 @@ class Periodo {
 		$this -> connection -> run($this -> periodoDAO -> search($search));
 		$periodos = array();
 		while ($result = $this -> connection -> fetchRow()){
-			array_push($periodos, new Periodo($result[0], $result[1], $result[2], $result[3], $result[4]));
+			array_push($periodos, new Periodo($result[0], $result[1], $result[2], $result[3], $result[4], $result[5]));
 		}
 		$this -> connection -> close();
 		return $periodos;
+	}
+
+	function selectByOrden(){
+		$this -> connection -> open();
+		//echo $this -> periodoDAO -> selectByOrden();
+		$this -> connection -> run($this -> periodoDAO -> selectByOrden());
+		$result = $this -> connection -> fetchRow();
+		$this -> connection -> close();
+		$this -> idPeriodo = $result[0];
+		$this -> orden = $result[1];
+		$this -> fecha_inicio = $result[2];
+		$this -> fecha_fin = $result[3];
+		$this -> anio = $result[4];
+		$this -> encurso = $result[5];
 	}
 }
 ?>

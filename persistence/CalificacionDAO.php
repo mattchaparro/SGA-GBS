@@ -112,13 +112,24 @@ class CalificacionDAO{
 	function selectNotaByPeriodo($periodo) {
 		return "select nota
 				from calificacion
-				where periodo_idPeriodo = '" . $periodo . "' and tipoCalificacion_idTipoCalificacion = '4'
+				where periodo_idPeriodo = '" . $periodo . "' and tipoCalificacion_idTipoCalificacion = '". $this -> tipoCalificacion . "'
 				and asignatura_idAsignatura = '" . $this -> asignatura . "' and estudiante_idEstudiante = '" . $this -> estudiante . "'";
 	}
 	function selectFallasByPeriodo($periodo) {
 		return "select fallas
 				from calificacion
-				where periodo_idPeriodo = '" . $periodo . "' and tipoCalificacion_idTipoCalificacion = '4'
+				where periodo_idPeriodo = '" . $periodo . "' and tipoCalificacion_idTipoCalificacion = '". $this -> tipoCalificacion . "'
+				and asignatura_idAsignatura = '" . $this -> asignatura . "' and estudiante_idEstudiante = '" . $this -> estudiante . "'";
+	}
+
+	function selectLastCalificacion(){
+		return " select max(idCalificacion) from calificacion";
+	}
+
+	function selectIdByNotaPeriodo($periodo) {
+		return "select idCalificacion
+				from calificacion
+				where periodo_idPeriodo = '" . $periodo . "' and tipoCalificacion_idTipoCalificacion = '". $this -> tipoCalificacion . "'
 				and asignatura_idAsignatura = '" . $this -> asignatura . "' and estudiante_idEstudiante = '" . $this -> estudiante . "'";
 	}
 }

@@ -4,7 +4,7 @@ $idAsignatura = $_GET['idAsignatura'];
 $periodo = $_GET['periodo'];
 $logro = new Logro("", "", "", $idAsignatura, "", $periodo);
 $logros = $logro->selectAllByAsignaturaPeriodo();
-if(count($logros)){ 
+
 ?>
 <table class="table table-sm ">
     <tbody>
@@ -20,9 +20,3 @@ if(count($logros)){
         ?>
     </tbody>
 </table>
-<?php }else{ ?>
-    <div class="alert alert-dismissible alert-danger">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        No existen logros para este periodo! <a href="#" class="alert-link">Haz clic aquí para crear un logro nuevo </a> 
-    </div>
-<?php  } ?>

@@ -9,6 +9,7 @@ require("business/EstadoEstudiante.php");
 require("business/Area.php");
 require("business/Asignatura.php");
 require("business/Logro.php");
+require("business/LogrosCalificacion.php");
 require("business/TipoLogro.php");
 require("business/LogProfesor.php");
 require("business/Profesor.php");
@@ -125,6 +126,13 @@ if(isset($_GET['logOut'])){
         <!---Estilos propios css-->
         <link rel="stylesheet" href="css/estilos.css">
 		<link rel="stylesheet" href="css/logIn.css">
+
+		<!-- Alertify CSS --> 
+		<link rel="stylesheet" type="text/css" href="libs/alertifyjs/css/alertify.css">
+		<link rel="stylesheet" type="text/css" href="libs/alertifyjs/css/themes/default.css">
+		
+		<!--Alertify JS-->
+        <script src="libs/alertifyjs/alertify.js"></script> 
 		
 		<link href="https://fonts.googleapis.com/css?family=Solway&display=swap" rel="stylesheet">
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.css" rel="stylesheet">

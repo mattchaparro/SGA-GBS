@@ -83,7 +83,7 @@ class Calificacion {
 
 	function insert(){
 		$this -> connection -> open();
-		echo $this -> calificacionDAO -> insert();
+		//echo $this -> calificacionDAO -> insert();
 		$this -> connection -> run($this -> calificacionDAO -> insert());
 		$this -> connection -> close();
 	}
@@ -336,6 +336,7 @@ class Calificacion {
 		$this -> connection -> close();
 		return $nota;
 	}
+
 	function selectFallasByPeriodo($periodo){
 		$this -> connection -> open();
 		//echo $this -> calificacionDAO -> selectNotaByPeriodo($periodo);
@@ -346,6 +347,27 @@ class Calificacion {
 		}
 		$this -> connection -> close();
 		return $nota;
+	}
+
+	function selectLastCalificacion(){
+        $this -> connection -> open();
+		$this -> connection -> run($this -> calificacionDAO -> selectLastCalificacion());
+		$result = $this -> connection -> fetchRow();
+		$this -> connection -> close();
+		$lastp = $this -> idCalificacion = $result[0];
+        return $lastp;
+	}
+	
+	function selectIdByNotaPeriodo($periodo){
+		$this -> connection -> open();
+		echo $this -> calificacionDAO -> selectIdByNotaPeriodo($periodo);
+		$this -> connection -> run($this -> calificacionDAO -> selectIdByNotaPeriodo($periodo));
+		$id = "";
+		while($result = $this -> connection -> fetchRow()){
+			$id = $result[0];
+		}
+		$this -> connection -> close();
+		return $id;
 	}
 }
 ?>

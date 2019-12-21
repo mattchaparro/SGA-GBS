@@ -12,10 +12,10 @@ $profesor->select();
 				<a class="nav-link btn btn-sm btn-secondary rounded rounded-pill text-white" href="index.php?pid=<?php echo base64_encode("ui/sessionProfesor.php") ?>">Inicio <span class="sr-only">(current)</span></a>
 			</li>
 			<li class="nav-item active mr-2 p-1">
-				<a class="nav-link btn btn-sm btn-secondary rounded rounded-pill text-white" href="index.php?pid=<?php echo base64_encode("ui/profesor/consultarMateriasEvaluar.php") ?>">Calificar <span class="sr-only">(current)</span></a>
+				<a class="nav-link btn btn-sm btn-secondary rounded rounded-pill text-white" href="index.php?pid=<?php echo base64_encode("ui/profesor/moduloCalificar.php") ?>">Calificar <span class="sr-only">(current)</span></a>
 			</li>
 			<li class="nav-item active mr-2 p-1">
-				<a class="nav-link btn btn-sm btn-secondary rounded rounded-pill text-white" href="#">Pensum</a>
+				<a class="nav-link btn btn-sm btn-secondary rounded rounded-pill text-white" href="index.php?pid=<?php echo base64_encode("ui/profesor/moduloLogros.php") ?>">Logros</a>
 			</li>
 			<li class="nav-item active mr-2 p-1">
 				<a class="nav-link btn btn-sm btn-secondary rounded rounded-pill text-white" href="#">Salones</a>

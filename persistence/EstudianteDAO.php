@@ -92,7 +92,8 @@ class EstudianteDAO{
 	function selectAllByCursoAsignatura($asignatura){
 		return "select * 
 				from estudiante INNER JOIN cursoasignaturaprofesor ON estudiante.curso_idCurso = cursoasignaturaprofesor.curso_idCurso 
-				where cursoasignaturaprofesor.asignatura_idAsignatura = '" . $asignatura . "'";
+				where cursoasignaturaprofesor.asignatura_idAsignatura = '" . $asignatura . "'
+				order by estudiante.apellido asc";
 	}
 }
 ?>

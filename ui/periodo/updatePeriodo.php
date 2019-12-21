@@ -19,8 +19,12 @@ $anio=date("d/m/Y");
 if(isset($_POST['anio'])){
 	$anio=$_POST['anio'];
 }
+$encurso="";
+if(isset($_POST['encurso'])){
+	$encurso=$_POST['encurso'];
+}
 if(isset($_POST['update'])){
-	$updatePeriodo = new Periodo($idPeriodo, $orden, $fecha_inicio, $fecha_fin, $anio);
+	$updatePeriodo = new Periodo($idPeriodo, $orden, $fecha_inicio, $fecha_fin, $anio, $encurso);
 	$updatePeriodo -> update();
 	$updatePeriodo -> select();
 	$user_ip = getenv('REMOTE_ADDR');
@@ -40,15 +44,15 @@ if(isset($_POST['update'])){
 		$browser = "Safari";
 	}
 	if($_SESSION['entity'] == 'Administrator'){
-		$logAdministrator = new LogAdministrator("","Edit Periodo", "Orden: " . $orden . ";; Fecha_inicio: " . $fecha_inicio . ";; Fecha_fin: " . $fecha_fin . ";; Anio: " . $anio, date("Y-m-d"), date("H:i:s"), $user_ip, PHP_OS, $browser, $_SESSION['id']);
+		$logAdministrator = new LogAdministrator("","Edit Periodo", "Orden: " . $orden . ";; Fecha_inicio: " . $fecha_inicio . ";; Fecha_fin: " . $fecha_fin . ";; Anio: " . $anio . ";; Encurso: " . $encurso, date("Y-m-d"), date("H:i:s"), $user_ip, PHP_OS, $browser, $_SESSION['id']);
 		$logAdministrator -> insert();
 	}
 	else if($_SESSION['entity'] == 'Profesor'){
-		$logProfesor = new LogProfesor("","Edit Periodo", "Orden: " . $orden . ";; Fecha_inicio: " . $fecha_inicio . ";; Fecha_fin: " . $fecha_fin . ";; Anio: " . $anio, date("Y-m-d"), date("H:i:s"), $user_ip, PHP_OS, $browser, $_SESSION['id']);
+		$logProfesor = new LogProfesor("","Edit Periodo", "Orden: " . $orden . ";; Fecha_inicio: " . $fecha_inicio . ";; Fecha_fin: " . $fecha_fin . ";; Anio: " . $anio . ";; Encurso: " . $encurso, date("Y-m-d"), date("H:i:s"), $user_ip, PHP_OS, $browser, $_SESSION['id']);
 		$logProfesor -> insert();
 	}
 	else if($_SESSION['entity'] == 'Secretaria'){
-		$logSecretaria = new LogSecretaria("","Edit Periodo", "Orden: " . $orden . ";; Fecha_inicio: " . $fecha_inicio . ";; Fecha_fin: " . $fecha_fin . ";; Anio: " . $anio, date("Y-m-d"), date("H:i:s"), $user_ip, PHP_OS, $browser, $_SESSION['id']);
+		$logSecretaria = new LogSecretaria("","Edit Periodo", "Orden: " . $orden . ";; Fecha_inicio: " . $fecha_inicio . ";; Fecha_fin: " . $fecha_fin . ";; Anio: " . $anio . ";; Encurso: " . $encurso, date("Y-m-d"), date("H:i:s"), $user_ip, PHP_OS, $browser, $_SESSION['id']);
 		$logSecretaria -> insert();
 	}
 	$processed=true;
@@ -76,16 +80,20 @@ if(isset($_POST['update'])){
 							<input type="text" class="form-control" name="orden" value="<?php echo $updatePeriodo -> getOrden() ?>" required />
 						</div>
 						<div class="form-group">
-							<label>Fecha_inicio*</label>
+							<label>Fecha_inicio</label>
 							<input type="date" class="form-control" name="fecha_inicio" id="fecha_inicio" value="<?php echo $updatePeriodo -> getFecha_inicio() ?>" autocomplete="off" />
 						</div>
 						<div class="form-group">
-							<label>Fecha_fin*</label>
+							<label>Fecha_fin</label>
 							<input type="date" class="form-control" name="fecha_fin" id="fecha_fin" value="<?php echo $updatePeriodo -> getFecha_fin() ?>" autocomplete="off" />
 						</div>
 						<div class="form-group">
 							<label>Anio*</label>
 							<input type="date" class="form-control" name="anio" id="anio" value="<?php echo $updatePeriodo -> getAnio() ?>" autocomplete="off" />
+						</div>
+						<div class="form-group">
+							<label>Encurso</label>
+							<input type="text" class="form-control" name="encurso" value="<?php echo $updatePeriodo -> getEncurso() ?>"/>
 						</div>
 						<button type="submit" class="btn" name="update">Edit</button>
 					</form>

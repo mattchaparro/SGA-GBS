@@ -74,6 +74,20 @@ if(isset($_GET['dir'])){
 							<span class='fas fa-sort-amount-down' data-toggle='tooltip' class='tooltipLink' data-original-title='Sort Descending' ></span></a>
 						<?php } ?>
 						</th>
+						<th nowrap>Encurso 
+						<?php if($order=="encurso" && $dir=="asc") { ?>
+							<span class='fas fa-sort-up'></span>
+						<?php } else { ?>
+							<a href='index.php?pid=<?php echo base64_encode("ui/periodo/selectAllPeriodo.php") ?>&order=encurso&dir=asc'>
+							<span class='fas fa-sort-amount-up' data-toggle='tooltip' class='tooltipLink' data-original-title='Sort Ascending' ></span></a>
+						<?php } ?>
+						<?php if($order=="encurso" && $dir=="desc") { ?>
+							<span class='fas fa-sort-down'></span>
+						<?php } else { ?>
+							<a href='index.php?pid=<?php echo base64_encode("ui/periodo/selectAllPeriodo.php") ?>&order=encurso&dir=desc'>
+							<span class='fas fa-sort-amount-down' data-toggle='tooltip' class='tooltipLink' data-original-title='Sort Descending' ></span></a>
+						<?php } ?>
+						</th>
 						<th nowrap></th>
 					</tr>
 				</thead>
@@ -92,6 +106,7 @@ if(isset($_GET['dir'])){
 						echo "<td>" . $currentPeriodo -> getFecha_inicio() . "</td>";
 						echo "<td>" . $currentPeriodo -> getFecha_fin() . "</td>";
 						echo "<td>" . $currentPeriodo -> getAnio() . "</td>";
+						echo "<td>" . $currentPeriodo -> getEncurso() . "</td>";
 						echo "<td class='text-right' nowrap>";
 						if($_SESSION['entity'] == 'Administrator') {
 							echo "<a href='index.php?pid=" . base64_encode("ui/periodo/updatePeriodo.php") . "&idPeriodo=" . $currentPeriodo -> getIdPeriodo() . "'><span class='fas fa-edit' data-toggle='tooltip' data-placement='left' class='tooltipLink' data-original-title='Edit Periodo' ></span></a> ";
