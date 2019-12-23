@@ -6,6 +6,7 @@ class Calificacion {
 	private $idCalificacion;
 	private $nota;
 	private $fallas;
+	private $idDefinitiva;
 	private $tipoCalificacion;
 	private $periodo;
 	private $estudiante;
@@ -35,6 +36,14 @@ class Calificacion {
 
 	function setFallas($pFallas) {
 		$this -> fallas = $pFallas;
+	}
+
+	function getIdDefinitiva() {
+		return $this -> idDefinitiva;
+	}
+
+	function setIdDefinitiva($pIdDefinitiva) {
+		$this -> idDefinitiva = $pIdDefinitiva;
 	}
 
 	function getTipoCalificacion() {
@@ -69,15 +78,16 @@ class Calificacion {
 		$this -> asignatura = $pAsignatura;
 	}
 
-	function Calificacion($pIdCalificacion = "", $pNota = "", $pFallas = "", $pTipoCalificacion = "", $pPeriodo = "", $pEstudiante = "", $pAsignatura = ""){
+	function Calificacion($pIdCalificacion = "", $pNota = "", $pFallas = "", $pIdDefinitiva = "", $pTipoCalificacion = "", $pPeriodo = "", $pEstudiante = "", $pAsignatura = ""){
 		$this -> idCalificacion = $pIdCalificacion;
 		$this -> nota = $pNota;
 		$this -> fallas = $pFallas;
+		$this -> idDefinitiva = $pIdDefinitiva;
 		$this -> tipoCalificacion = $pTipoCalificacion;
 		$this -> periodo = $pPeriodo;
 		$this -> estudiante = $pEstudiante;
 		$this -> asignatura = $pAsignatura;
-		$this -> calificacionDAO = new CalificacionDAO($this -> idCalificacion, $this -> nota, $this -> fallas, $this -> tipoCalificacion, $this -> periodo, $this -> estudiante, $this -> asignatura);
+		$this -> calificacionDAO = new CalificacionDAO($this -> idCalificacion, $this -> nota, $this -> fallas, $this -> idDefinitiva, $this -> tipoCalificacion, $this -> periodo, $this -> estudiante, $this -> asignatura);
 		$this -> connection = new Connection();
 	}
 
@@ -102,16 +112,17 @@ class Calificacion {
 		$this -> idCalificacion = $result[0];
 		$this -> nota = $result[1];
 		$this -> fallas = $result[2];
-		$tipoCalificacion = new TipoCalificacion($result[3]);
+		$this -> idDefinitiva = $result[3];
+		$tipoCalificacion = new TipoCalificacion($result[4]);
 		$tipoCalificacion -> select();
 		$this -> tipoCalificacion = $tipoCalificacion;
-		$periodo = new Periodo($result[4]);
+		$periodo = new Periodo($result[5]);
 		$periodo -> select();
 		$this -> periodo = $periodo;
-		$estudiante = new Estudiante($result[5]);
+		$estudiante = new Estudiante($result[6]);
 		$estudiante -> select();
 		$this -> estudiante = $estudiante;
-		$asignatura = new Asignatura($result[6]);
+		$asignatura = new Asignatura($result[7]);
 		$asignatura -> select();
 		$this -> asignatura = $asignatura;
 	}
@@ -121,15 +132,15 @@ class Calificacion {
 		$this -> connection -> run($this -> calificacionDAO -> selectAll());
 		$calificacions = array();
 		while ($result = $this -> connection -> fetchRow()){
-			$tipoCalificacion = new TipoCalificacion($result[3]);
+			$tipoCalificacion = new TipoCalificacion($result[4]);
 			$tipoCalificacion -> select();
-			$periodo = new Periodo($result[4]);
+			$periodo = new Periodo($result[5]);
 			$periodo -> select();
-			$estudiante = new Estudiante($result[5]);
+			$estudiante = new Estudiante($result[6]);
 			$estudiante -> select();
-			$asignatura = new Asignatura($result[6]);
+			$asignatura = new Asignatura($result[7]);
 			$asignatura -> select();
-			array_push($calificacions, new Calificacion($result[0], $result[1], $result[2], $tipoCalificacion, $periodo, $estudiante, $asignatura));
+			array_push($calificacions, new Calificacion($result[0], $result[1], $result[2], $result[3], $tipoCalificacion, $periodo, $estudiante, $asignatura));
 		}
 		$this -> connection -> close();
 		return $calificacions;
@@ -140,15 +151,15 @@ class Calificacion {
 		$this -> connection -> run($this -> calificacionDAO -> selectAllByTipoCalificacion());
 		$calificacions = array();
 		while ($result = $this -> connection -> fetchRow()){
-			$tipoCalificacion = new TipoCalificacion($result[3]);
+			$tipoCalificacion = new TipoCalificacion($result[4]);
 			$tipoCalificacion -> select();
-			$periodo = new Periodo($result[4]);
+			$periodo = new Periodo($result[5]);
 			$periodo -> select();
-			$estudiante = new Estudiante($result[5]);
+			$estudiante = new Estudiante($result[6]);
 			$estudiante -> select();
-			$asignatura = new Asignatura($result[6]);
+			$asignatura = new Asignatura($result[7]);
 			$asignatura -> select();
-			array_push($calificacions, new Calificacion($result[0], $result[1], $result[2], $tipoCalificacion, $periodo, $estudiante, $asignatura));
+			array_push($calificacions, new Calificacion($result[0], $result[1], $result[2], $result[3], $tipoCalificacion, $periodo, $estudiante, $asignatura));
 		}
 		$this -> connection -> close();
 		return $calificacions;
@@ -159,15 +170,15 @@ class Calificacion {
 		$this -> connection -> run($this -> calificacionDAO -> selectAllByPeriodo());
 		$calificacions = array();
 		while ($result = $this -> connection -> fetchRow()){
-			$tipoCalificacion = new TipoCalificacion($result[3]);
+			$tipoCalificacion = new TipoCalificacion($result[4]);
 			$tipoCalificacion -> select();
-			$periodo = new Periodo($result[4]);
+			$periodo = new Periodo($result[5]);
 			$periodo -> select();
-			$estudiante = new Estudiante($result[5]);
+			$estudiante = new Estudiante($result[6]);
 			$estudiante -> select();
-			$asignatura = new Asignatura($result[6]);
+			$asignatura = new Asignatura($result[7]);
 			$asignatura -> select();
-			array_push($calificacions, new Calificacion($result[0], $result[1], $result[2], $tipoCalificacion, $periodo, $estudiante, $asignatura));
+			array_push($calificacions, new Calificacion($result[0], $result[1], $result[2], $result[3], $tipoCalificacion, $periodo, $estudiante, $asignatura));
 		}
 		$this -> connection -> close();
 		return $calificacions;
@@ -178,15 +189,15 @@ class Calificacion {
 		$this -> connection -> run($this -> calificacionDAO -> selectAllByEstudiante());
 		$calificacions = array();
 		while ($result = $this -> connection -> fetchRow()){
-			$tipoCalificacion = new TipoCalificacion($result[3]);
+			$tipoCalificacion = new TipoCalificacion($result[4]);
 			$tipoCalificacion -> select();
-			$periodo = new Periodo($result[4]);
+			$periodo = new Periodo($result[5]);
 			$periodo -> select();
-			$estudiante = new Estudiante($result[5]);
+			$estudiante = new Estudiante($result[6]);
 			$estudiante -> select();
-			$asignatura = new Asignatura($result[6]);
+			$asignatura = new Asignatura($result[7]);
 			$asignatura -> select();
-			array_push($calificacions, new Calificacion($result[0], $result[1], $result[2], $tipoCalificacion, $periodo, $estudiante, $asignatura));
+			array_push($calificacions, new Calificacion($result[0], $result[1], $result[2], $result[3], $tipoCalificacion, $periodo, $estudiante, $asignatura));
 		}
 		$this -> connection -> close();
 		return $calificacions;
@@ -197,15 +208,15 @@ class Calificacion {
 		$this -> connection -> run($this -> calificacionDAO -> selectAllByAsignatura());
 		$calificacions = array();
 		while ($result = $this -> connection -> fetchRow()){
-			$tipoCalificacion = new TipoCalificacion($result[3]);
+			$tipoCalificacion = new TipoCalificacion($result[4]);
 			$tipoCalificacion -> select();
-			$periodo = new Periodo($result[4]);
+			$periodo = new Periodo($result[5]);
 			$periodo -> select();
-			$estudiante = new Estudiante($result[5]);
+			$estudiante = new Estudiante($result[6]);
 			$estudiante -> select();
-			$asignatura = new Asignatura($result[6]);
+			$asignatura = new Asignatura($result[7]);
 			$asignatura -> select();
-			array_push($calificacions, new Calificacion($result[0], $result[1], $result[2], $tipoCalificacion, $periodo, $estudiante, $asignatura));
+			array_push($calificacions, new Calificacion($result[0], $result[1], $result[2], $result[3], $tipoCalificacion, $periodo, $estudiante, $asignatura));
 		}
 		$this -> connection -> close();
 		return $calificacions;
@@ -216,15 +227,15 @@ class Calificacion {
 		$this -> connection -> run($this -> calificacionDAO -> selectAllOrder($order, $dir));
 		$calificacions = array();
 		while ($result = $this -> connection -> fetchRow()){
-			$tipoCalificacion = new TipoCalificacion($result[3]);
+			$tipoCalificacion = new TipoCalificacion($result[4]);
 			$tipoCalificacion -> select();
-			$periodo = new Periodo($result[4]);
+			$periodo = new Periodo($result[5]);
 			$periodo -> select();
-			$estudiante = new Estudiante($result[5]);
+			$estudiante = new Estudiante($result[6]);
 			$estudiante -> select();
-			$asignatura = new Asignatura($result[6]);
+			$asignatura = new Asignatura($result[7]);
 			$asignatura -> select();
-			array_push($calificacions, new Calificacion($result[0], $result[1], $result[2], $tipoCalificacion, $periodo, $estudiante, $asignatura));
+			array_push($calificacions, new Calificacion($result[0], $result[1], $result[2], $result[3], $tipoCalificacion, $periodo, $estudiante, $asignatura));
 		}
 		$this -> connection -> close();
 		return $calificacions;
@@ -235,15 +246,15 @@ class Calificacion {
 		$this -> connection -> run($this -> calificacionDAO -> selectAllByTipoCalificacionOrder($order, $dir));
 		$calificacions = array();
 		while ($result = $this -> connection -> fetchRow()){
-			$tipoCalificacion = new TipoCalificacion($result[3]);
+			$tipoCalificacion = new TipoCalificacion($result[4]);
 			$tipoCalificacion -> select();
-			$periodo = new Periodo($result[4]);
+			$periodo = new Periodo($result[5]);
 			$periodo -> select();
-			$estudiante = new Estudiante($result[5]);
+			$estudiante = new Estudiante($result[6]);
 			$estudiante -> select();
-			$asignatura = new Asignatura($result[6]);
+			$asignatura = new Asignatura($result[7]);
 			$asignatura -> select();
-			array_push($calificacions, new Calificacion($result[0], $result[1], $result[2], $tipoCalificacion, $periodo, $estudiante, $asignatura));
+			array_push($calificacions, new Calificacion($result[0], $result[1], $result[2], $result[3], $tipoCalificacion, $periodo, $estudiante, $asignatura));
 		}
 		$this -> connection -> close();
 		return $calificacions;
@@ -254,15 +265,15 @@ class Calificacion {
 		$this -> connection -> run($this -> calificacionDAO -> selectAllByPeriodoOrder($order, $dir));
 		$calificacions = array();
 		while ($result = $this -> connection -> fetchRow()){
-			$tipoCalificacion = new TipoCalificacion($result[3]);
+			$tipoCalificacion = new TipoCalificacion($result[4]);
 			$tipoCalificacion -> select();
-			$periodo = new Periodo($result[4]);
+			$periodo = new Periodo($result[5]);
 			$periodo -> select();
-			$estudiante = new Estudiante($result[5]);
+			$estudiante = new Estudiante($result[6]);
 			$estudiante -> select();
-			$asignatura = new Asignatura($result[6]);
+			$asignatura = new Asignatura($result[7]);
 			$asignatura -> select();
-			array_push($calificacions, new Calificacion($result[0], $result[1], $result[2], $tipoCalificacion, $periodo, $estudiante, $asignatura));
+			array_push($calificacions, new Calificacion($result[0], $result[1], $result[2], $result[3], $tipoCalificacion, $periodo, $estudiante, $asignatura));
 		}
 		$this -> connection -> close();
 		return $calificacions;
@@ -273,15 +284,15 @@ class Calificacion {
 		$this -> connection -> run($this -> calificacionDAO -> selectAllByEstudianteOrder($order, $dir));
 		$calificacions = array();
 		while ($result = $this -> connection -> fetchRow()){
-			$tipoCalificacion = new TipoCalificacion($result[3]);
+			$tipoCalificacion = new TipoCalificacion($result[4]);
 			$tipoCalificacion -> select();
-			$periodo = new Periodo($result[4]);
+			$periodo = new Periodo($result[5]);
 			$periodo -> select();
-			$estudiante = new Estudiante($result[5]);
+			$estudiante = new Estudiante($result[6]);
 			$estudiante -> select();
-			$asignatura = new Asignatura($result[6]);
+			$asignatura = new Asignatura($result[7]);
 			$asignatura -> select();
-			array_push($calificacions, new Calificacion($result[0], $result[1], $result[2], $tipoCalificacion, $periodo, $estudiante, $asignatura));
+			array_push($calificacions, new Calificacion($result[0], $result[1], $result[2], $result[3], $tipoCalificacion, $periodo, $estudiante, $asignatura));
 		}
 		$this -> connection -> close();
 		return $calificacions;
@@ -292,15 +303,15 @@ class Calificacion {
 		$this -> connection -> run($this -> calificacionDAO -> selectAllByAsignaturaOrder($order, $dir));
 		$calificacions = array();
 		while ($result = $this -> connection -> fetchRow()){
-			$tipoCalificacion = new TipoCalificacion($result[3]);
+			$tipoCalificacion = new TipoCalificacion($result[4]);
 			$tipoCalificacion -> select();
-			$periodo = new Periodo($result[4]);
+			$periodo = new Periodo($result[5]);
 			$periodo -> select();
-			$estudiante = new Estudiante($result[5]);
+			$estudiante = new Estudiante($result[6]);
 			$estudiante -> select();
-			$asignatura = new Asignatura($result[6]);
+			$asignatura = new Asignatura($result[7]);
 			$asignatura -> select();
-			array_push($calificacions, new Calificacion($result[0], $result[1], $result[2], $tipoCalificacion, $periodo, $estudiante, $asignatura));
+			array_push($calificacions, new Calificacion($result[0], $result[1], $result[2], $result[3], $tipoCalificacion, $periodo, $estudiante, $asignatura));
 		}
 		$this -> connection -> close();
 		return $calificacions;
@@ -311,15 +322,15 @@ class Calificacion {
 		$this -> connection -> run($this -> calificacionDAO -> search($search));
 		$calificacions = array();
 		while ($result = $this -> connection -> fetchRow()){
-			$tipoCalificacion = new TipoCalificacion($result[3]);
+			$tipoCalificacion = new TipoCalificacion($result[4]);
 			$tipoCalificacion -> select();
-			$periodo = new Periodo($result[4]);
+			$periodo = new Periodo($result[5]);
 			$periodo -> select();
-			$estudiante = new Estudiante($result[5]);
+			$estudiante = new Estudiante($result[6]);
 			$estudiante -> select();
-			$asignatura = new Asignatura($result[6]);
+			$asignatura = new Asignatura($result[7]);
 			$asignatura -> select();
-			array_push($calificacions, new Calificacion($result[0], $result[1], $result[2], $tipoCalificacion, $periodo, $estudiante, $asignatura));
+			array_push($calificacions, new Calificacion($result[0], $result[1], $result[2], $result[3], $tipoCalificacion, $periodo, $estudiante, $asignatura));
 		}
 		$this -> connection -> close();
 		return $calificacions;
@@ -360,7 +371,7 @@ class Calificacion {
 	
 	function selectIdByNotaPeriodo($periodo){
 		$this -> connection -> open();
-		echo $this -> calificacionDAO -> selectIdByNotaPeriodo($periodo);
+		//echo $this -> calificacionDAO -> selectIdByNotaPeriodo($periodo) . "<br>";
 		$this -> connection -> run($this -> calificacionDAO -> selectIdByNotaPeriodo($periodo));
 		$id = "";
 		while($result = $this -> connection -> fetchRow()){

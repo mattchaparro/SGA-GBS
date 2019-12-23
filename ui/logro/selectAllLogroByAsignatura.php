@@ -50,12 +50,13 @@ $asignatura -> select();
 						</th>
 						<th>Asignatura</th>
 						<th>Tipo Logro</th>
+						<th>Periodo</th>
 						<th nowrap></th>
 					</tr>
 				</thead>
 				</tbody>
 					<?php
-					$logro = new Logro("", "", "", $_GET['idAsignatura'], "");
+					$logro = new Logro("", "", "", $_GET['idAsignatura'], "", "");
 					if($order!="" && $dir!="") {
 						$logros = $logro -> selectAllByAsignaturaOrder($order, $dir);
 					} else {
@@ -68,6 +69,7 @@ $asignatura -> select();
 						echo "<td>" . $currentLogro -> getDescripcion() . "</td>";
 						echo "<td>" . $currentLogro -> getAsignatura() -> getNombre() . "</td>";
 						echo "<td>" . $currentLogro -> getTipoLogro() -> getNombre() . "</td>";
+						echo "<td>" . $currentLogro -> getPeriodo() -> getOrden() . "</td>";
 						echo "<td class='text-right' nowrap>";
 						if($_SESSION['entity'] == 'Administrator') {
 							echo "<a href='index.php?pid=" . base64_encode("ui/logro/updateLogro.php") . "&idLogro=" . $currentLogro -> getIdLogro() . "'><span class='fas fa-edit' data-toggle='tooltip' data-placement='left' class='tooltipLink' data-original-title='Edit Logro' ></span></a> ";

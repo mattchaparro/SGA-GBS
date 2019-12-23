@@ -55,13 +55,13 @@ foreach ($logrosCalificacion as $lc){
     4. Definitiva
     */
 
-$calConceptual = new Calificacion("","","",3,"",$idEstudiante, $idAsignatura);
+$calConceptual = new Calificacion("","","", $idNota, 3,"",$idEstudiante, $idAsignatura);
 $notaConceptual = $calConceptual -> selectNotaByPeriodo($periodoCurso);
 
-$calProcedimental = new Calificacion("","","",1,"",$idEstudiante, $idAsignatura);
+$calProcedimental = new Calificacion("","","", $idNota, 1,"",$idEstudiante, $idAsignatura);
 $notaProcedimental = $calProcedimental -> selectNotaByPeriodo($periodoCurso);
 
-$calActitudinal = new Calificacion("","","",2,"",$idEstudiante, $idAsignatura);
+$calActitudinal = new Calificacion("","","", $idNota, 2,"",$idEstudiante, $idAsignatura);
 $notaActitudinal = $calActitudinal -> selectNotaByPeriodo($periodoCurso);
 
 

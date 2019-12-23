@@ -136,8 +136,6 @@ class Logro {
 		return $logros;
 	}
 
-
-
 	function selectAllByTipoLogro(){
 		$this -> connection -> open();
 		$this -> connection -> run($this -> logroDAO -> selectAllByTipoLogro());

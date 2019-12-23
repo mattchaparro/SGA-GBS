@@ -48,13 +48,6 @@ class LogroDAO{
 				where asignatura_idAsignatura = '" . $this -> asignatura . "'";
 	}
 
-	function selectAllByAsignaturaPeriodo() {
-		return "select idLogro, nombre, descripcion, asignatura_idAsignatura, tipoLogro_idTipoLogro, periodo_idPeriodo
-				from Logro
-				where asignatura_idAsignatura = '" . $this -> asignatura . "'
-				and periodo_idPeriodo = '" . $this -> periodo . "'";
-	}
-
 	function selectAllByTipoLogro() {
 		return "select idLogro, nombre, descripcion, asignatura_idAsignatura, tipoLogro_idTipoLogro, periodo_idPeriodo
 				from Logro
@@ -98,6 +91,13 @@ class LogroDAO{
 		return "select idLogro, nombre, descripcion, asignatura_idAsignatura, tipoLogro_idTipoLogro, periodo_idPeriodo
 				from Logro
 				where nombre like '%" . $search . "%' or descripcion like '%" . $search . "%'";
+	}
+
+	function selectAllByAsignaturaPeriodo() {
+		return "select idLogro, nombre, descripcion, asignatura_idAsignatura, tipoLogro_idTipoLogro, periodo_idPeriodo
+				from Logro
+				where asignatura_idAsignatura = '" . $this -> asignatura . "'
+				and periodo_idPeriodo = '" . $this -> periodo . "'";
 	}
 }
 ?>

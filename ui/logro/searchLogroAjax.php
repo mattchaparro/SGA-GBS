@@ -11,6 +11,7 @@
 			<th nowrap>Descripcion</th>
 			<th>Asignatura</th>
 			<th>Tipo Logro</th>
+			<th>Periodo</th>
 			<th nowrap></th>
 		</tr>
 	</thead>
@@ -25,6 +26,7 @@
 			echo "<td>" . str_ireplace($_GET['search'], "<mark>" . $_GET['search'] . "</mark>", $currentLogro -> getDescripcion()) . "</td>";
 			echo "<td>" . $currentLogro -> getAsignatura() -> getNombre() . "</td>";
 			echo "<td>" . $currentLogro -> getTipoLogro() -> getNombre() . "</td>";
+			echo "<td>" . $currentLogro -> getPeriodo() -> getOrden() . "</td>";
 						echo "<td class='text-right' nowrap>";
 						if($_GET['entity'] == 'Administrator') {
 							echo "<a href='index.php?pid=" . base64_encode("ui/logro/updateLogro.php") . "&idLogro=" . $currentLogro -> getIdLogro() . "'><span class='fas fa-edit' data-toggle='tooltip' data-placement='left' class='tooltipLink' data-original-title='Edit Logro' ></span></a> ";

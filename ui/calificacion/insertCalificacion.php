@@ -4,6 +4,14 @@ $nota="";
 if(isset($_POST['nota'])){
 	$nota=$_POST['nota'];
 }
+$fallas="";
+if(isset($_POST['fallas'])){
+	$fallas=$_POST['fallas'];
+}
+$idDefinitiva="";
+if(isset($_POST['idDefinitiva'])){
+	$idDefinitiva=$_POST['idDefinitiva'];
+}
 $tipoCalificacion="";
 if(isset($_POST['tipoCalificacion'])){
 	$tipoCalificacion=$_POST['tipoCalificacion'];
@@ -33,7 +41,7 @@ if(isset($_GET['idAsignatura'])){
 	$asignatura=$_GET['idAsignatura'];
 }
 if(isset($_POST['insert'])){
-	$newCalificacion = new Calificacion("", $nota, $tipoCalificacion, $periodo, $estudiante, $asignatura);
+	$newCalificacion = new Calificacion("", $nota, $fallas, $idDefinitiva, $tipoCalificacion, $periodo, $estudiante, $asignatura);
 	$newCalificacion -> insert();
 	$objTipoCalificacion = new TipoCalificacion($tipoCalificacion);
 	$objTipoCalificacion -> select();
@@ -64,15 +72,15 @@ if(isset($_POST['insert'])){
 		$browser = "Safari";
 	}
 	if($_SESSION['entity'] == 'Administrator'){
-		$logAdministrator = new LogAdministrator("","Create Calificacion", "Nota: " . $nota . ";; Tipo Calificacion: " . $nameTipoCalificacion . ";; Periodo: " . $namePeriodo . ";; Estudiante: " . $nameEstudiante . ";; Asignatura: " . $nameAsignatura, date("Y-m-d"), date("H:i:s"), $user_ip, PHP_OS, $browser, $_SESSION['id']);
+		$logAdministrator = new LogAdministrator("","Create Calificacion", "Nota: " . $nota . ";; Fallas: " . $fallas . ";; Id Definitiva: " . $idDefinitiva . ";; Tipo Calificacion: " . $nameTipoCalificacion . ";; Periodo: " . $namePeriodo . ";; Estudiante: " . $nameEstudiante . ";; Asignatura: " . $nameAsignatura, date("Y-m-d"), date("H:i:s"), $user_ip, PHP_OS, $browser, $_SESSION['id']);
 		$logAdministrator -> insert();
 	}
 	else if($_SESSION['entity'] == 'Profesor'){
-		$logProfesor = new LogProfesor("","Create Calificacion", "Nota: " . $nota . ";; Tipo Calificacion: " . $nameTipoCalificacion . ";; Periodo: " . $namePeriodo . ";; Estudiante: " . $nameEstudiante . ";; Asignatura: " . $nameAsignatura, date("Y-m-d"), date("H:i:s"), $user_ip, PHP_OS, $browser, $_SESSION['id']);
+		$logProfesor = new LogProfesor("","Create Calificacion", "Nota: " . $nota . ";; Fallas: " . $fallas . ";; Id Definitiva: " . $idDefinitiva . ";; Tipo Calificacion: " . $nameTipoCalificacion . ";; Periodo: " . $namePeriodo . ";; Estudiante: " . $nameEstudiante . ";; Asignatura: " . $nameAsignatura, date("Y-m-d"), date("H:i:s"), $user_ip, PHP_OS, $browser, $_SESSION['id']);
 		$logProfesor -> insert();
 	}
 	else if($_SESSION['entity'] == 'Secretaria'){
-		$logSecretaria = new LogSecretaria("","Create Calificacion", "Nota: " . $nota . ";; Tipo Calificacion: " . $nameTipoCalificacion . ";; Periodo: " . $namePeriodo . ";; Estudiante: " . $nameEstudiante . ";; Asignatura: " . $nameAsignatura, date("Y-m-d"), date("H:i:s"), $user_ip, PHP_OS, $browser, $_SESSION['id']);
+		$logSecretaria = new LogSecretaria("","Create Calificacion", "Nota: " . $nota . ";; Fallas: " . $fallas . ";; Id Definitiva: " . $idDefinitiva . ";; Tipo Calificacion: " . $nameTipoCalificacion . ";; Periodo: " . $namePeriodo . ";; Estudiante: " . $nameEstudiante . ";; Asignatura: " . $nameAsignatura, date("Y-m-d"), date("H:i:s"), $user_ip, PHP_OS, $browser, $_SESSION['id']);
 		$logSecretaria -> insert();
 	}
 	$processed=true;
@@ -98,6 +106,14 @@ if(isset($_POST['insert'])){
 						<div class="form-group">
 							<label>Nota*</label>
 							<input type="text" class="form-control" name="nota" value="<?php echo $nota ?>" required />
+						</div>
+						<div class="form-group">
+							<label>Fallas*</label>
+							<input type="text" class="form-control" name="fallas" value="<?php echo $fallas ?>" required />
+						</div>
+						<div class="form-group">
+							<label>Id Definitiva</label>
+							<input type="text" class="form-control" name="idDefinitiva" value="<?php echo $idDefinitiva ?>"/>
 						</div>
 					<div class="form-group">
 						<label>Tipo Calificacion*</label>

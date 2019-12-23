@@ -43,7 +43,7 @@ CREATE TABLE Estudiante (
 CREATE TABLE Curso (
 	idCurso int(11) NOT NULL AUTO_INCREMENT,
 	nombre varchar(45) NOT NULL,
-	año date NOT NULL,
+	anio date NOT NULL,
 	grado_idGrado int(11) NOT NULL,
 	PRIMARY KEY (idCurso)
 );
@@ -128,9 +128,10 @@ CREATE TABLE CursoAsignaturaProfesor (
 CREATE TABLE Periodo (
 	idPeriodo int(11) NOT NULL AUTO_INCREMENT,
 	orden varchar(45) NOT NULL,
-	fecha_inicio date NOT NULL,
-	fecha_fin date NOT NULL,
+	fecha_inicio date DEFAULT NULL,
+	fecha_fin date DEFAULT NULL,
 	anio date NOT NULL,
+	encurso int DEFAULT NULL,
 	PRIMARY KEY (idPeriodo)
 );
 
@@ -138,6 +139,7 @@ CREATE TABLE Calificacion (
 	idCalificacion int(11) NOT NULL AUTO_INCREMENT,
 	nota int NOT NULL,
 	fallas int NOT NULL,
+	idDefinitiva int DEFAULT NULL,
 	tipoCalificacion_idTipoCalificacion int(11) NOT NULL,
 	periodo_idPeriodo int(11) NOT NULL,
 	estudiante_idEstudiante int(11) NOT NULL,

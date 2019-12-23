@@ -39,7 +39,7 @@ if(isset($_POST['subirNota'])){
         $notaActitudinal = $_POST['notaActitudinal'];
         $fallas = $_POST['fallas'];
         $nota = ($notaConceptual + $notaActitudinal + $notaProcedimental);
-        $calificacion = new Calificacion("", $nota, $fallas, 4, $periodo, $idEstudiante, $idMateria);
+        $calificacion = new Calificacion("", $nota, $fallas,0, 4, $periodo, $idEstudiante, $idMateria);
         $calificacion -> insert();
         $ultimaCalificacion =  $calificacion -> selectLastCalificacion();
         
@@ -56,11 +56,11 @@ if(isset($_POST['subirNota'])){
         3. Conceptual
         4. Definitiva
         */
-        $calProc = new Calificacion ("", $notaProcedimental,"", 1, $periodo, $idEstudiante, $idMateria);
+        $calProc = new Calificacion ("", $notaProcedimental,"", $ultimaCalificacion ,1, $periodo, $idEstudiante, $idMateria);
         $calProc -> insert();
-        $calAct = new Calificacion ("", $notaActitudinal, "", 2, $periodo, $idEstudiante, $idMateria);
+        $calAct = new Calificacion ("", $notaActitudinal, "",$ultimaCalificacion , 2, $periodo, $idEstudiante, $idMateria);
         $calAct -> insert();
-        $calCon = new Calificacion ("", $notaConceptual, "", 3, $periodo, $idEstudiante, $idMateria);
+        $calCon = new Calificacion ("", $notaConceptual, "",$ultimaCalificacion , 3, $periodo, $idEstudiante, $idMateria);
         $calCon -> insert();
 
         echo "<script>
@@ -81,7 +81,7 @@ if(isset($_POST['editarNota'])){
         $notaActitudinal = $_POST['notaActitudinal'];
         $fallas = $_POST['fallas'];
         $nota = ($notaConceptual + $notaActitudinal + $notaProcedimental);
-        $calificacion = new Calificacion($idCalificacion, $nota, $fallas, 4, $periodo, $idAlumno, $idMateria);
+        $calificacion = new Calificacion($idCalificacion, $nota, $fallas,"", 4, $periodo, $idAlumno, $idMateria);
         $calificacion -> update();
       
         foreach($arrayLogros as $l){
@@ -96,24 +96,23 @@ if(isset($_POST['editarNota'])){
         3. Conceptual
         4. Definitiva
         */
+        $objNotaEditar = new Calificacion();
 
-        $idCalProc = new Calificacion ("", "", "" , 1, "", $idEstudiante, $idMateria);
+        $idCalProc = new Calificacion ("", "", "" , $idCalificacion , 1, $periodo , $idEstudiante, $idMateria);
         $idNotaProc = $idCalProc -> selectIdByNotaPeriodo($periodo);
-        echo "<br> idNota proc ". $idNotaProc;
-        $notaProcUpdate = new Calificacion  ($idNotaProc, $notaProcedimental,0 , 1, $periodo, $idEstudiante, $idMateria);
+        $notaProcUpdate = new Calificacion  ($idNotaProc, $notaProcedimental, $periodo , $idCalificacion , 1, $periodo, $idEstudiante, $idMateria);
         $notaProcUpdate -> update();
 
             
-        $idCalAct = new Calificacion ("", "", "", 2, "", $idEstudiante, $idMateria);
+        $idCalAct = new Calificacion ("", "", "", $idCalificacion, 2, "" , $idEstudiante, $idMateria);
         $idNotaAct = $idCalAct -> selectIdByNotaPeriodo($periodo);
-        echo "<br> idNota act ". $idNotaAct;
-        $notaActUpdate = new Calificacion  ($idNotaAct, $notaActitudinal, 0, 2, $periodo, $idEstudiante, $idMateria);
+        $notaActUpdate = new Calificacion  ($idNotaAct, $notaActitudinal, 0 , $idCalificacion  , 2, $periodo, $idEstudiante, $idMateria);
         $notaActUpdate -> update();
-        /*
-        $idCalConc = new Calificacion ("", "","", 3, "", $idEstudiante, $idMateria);
-        $idNotaConc = $idCalAct -> selectIdByNotaPeriodo($periodo);
-        $notaConcUpdate = new Calificacion  ($idNotaConc, $notaConceptual, 0, 3, $periodo, $idEstudiante, $idMateria);
-        $notaConcUpdate -> update();*/
+        
+        $idCalConc = new Calificacion ("", "","", $idCalificacion , 3, "", $idEstudiante, $idMateria);
+        $idNotaConc = $idCalConc -> selectIdByNotaPeriodo($periodo);
+        $notaConcUpdate = new Calificacion  ($idNotaConc, $notaConceptual, 0, $idCalificacion , 3, $periodo, $idEstudiante, $idMateria);
+        $notaConcUpdate -> update();
 
         echo "<script>
                 alertify.warning('Nota editada!');
@@ -242,7 +241,7 @@ if(isset($_POST['editarNota'])){
                                                
                                                 
                                                 $idEstudiante =  $currentEstudiante -> getIdEstudiante();
-                                                $cal = new Calificacion("","","",4,"",$idEstudiante, $idMateria);
+                                                $cal = new Calificacion("","","",0 ,4,"",$idEstudiante, $idMateria);
                                                 $idNota = $cal -> selectIdByNotaPeriodo($periodo);
                                                 $notaPeriodo1 = $cal -> selectNotaByPeriodo(1);
                                                 $notaPeriodo2 = $cal -> selectNotaByPeriodo(2);

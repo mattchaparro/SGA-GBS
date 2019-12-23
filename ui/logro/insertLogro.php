@@ -22,8 +22,15 @@ if(isset($_POST['tipoLogro'])){
 if(isset($_GET['idTipoLogro'])){
 	$tipoLogro=$_GET['idTipoLogro'];
 }
+$periodo="";
+if(isset($_POST['periodo'])){
+	$periodo=$_POST['periodo'];
+}
+if(isset($_GET['idPeriodo'])){
+	$periodo=$_GET['idPeriodo'];
+}
 if(isset($_POST['insert'])){
-	$newLogro = new Logro("", $nombre, $descripcion, $asignatura, $tipoLogro);
+	$newLogro = new Logro("", $nombre, $descripcion, $asignatura, $tipoLogro, $periodo);
 	$newLogro -> insert();
 	$objAsignatura = new Asignatura($asignatura);
 	$objAsignatura -> select();
@@ -31,6 +38,9 @@ if(isset($_POST['insert'])){
 	$objTipoLogro = new TipoLogro($tipoLogro);
 	$objTipoLogro -> select();
 	$nameTipoLogro = $objTipoLogro -> getNombre() ;
+	$objPeriodo = new Periodo($periodo);
+	$objPeriodo -> select();
+	$namePeriodo = $objPeriodo -> getOrden() ;
 	$user_ip = getenv('REMOTE_ADDR');
 	$agent = $_SERVER["HTTP_USER_AGENT"];
 	$browser = "-";
@@ -48,15 +58,15 @@ if(isset($_POST['insert'])){
 		$browser = "Safari";
 	}
 	if($_SESSION['entity'] == 'Administrator'){
-		$logAdministrator = new LogAdministrator("","Create Logro", "Nombre: " . $nombre . ";; Descripcion: " . $descripcion . ";; Asignatura: " . $nameAsignatura . ";; Tipo Logro: " . $nameTipoLogro, date("Y-m-d"), date("H:i:s"), $user_ip, PHP_OS, $browser, $_SESSION['id']);
+		$logAdministrator = new LogAdministrator("","Create Logro", "Nombre: " . $nombre . ";; Descripcion: " . $descripcion . ";; Asignatura: " . $nameAsignatura . ";; Tipo Logro: " . $nameTipoLogro . ";; Periodo: " . $namePeriodo, date("Y-m-d"), date("H:i:s"), $user_ip, PHP_OS, $browser, $_SESSION['id']);
 		$logAdministrator -> insert();
 	}
 	else if($_SESSION['entity'] == 'Profesor'){
-		$logProfesor = new LogProfesor("","Create Logro", "Nombre: " . $nombre . ";; Descripcion: " . $descripcion . ";; Asignatura: " . $nameAsignatura . ";; Tipo Logro: " . $nameTipoLogro, date("Y-m-d"), date("H:i:s"), $user_ip, PHP_OS, $browser, $_SESSION['id']);
+		$logProfesor = new LogProfesor("","Create Logro", "Nombre: " . $nombre . ";; Descripcion: " . $descripcion . ";; Asignatura: " . $nameAsignatura . ";; Tipo Logro: " . $nameTipoLogro . ";; Periodo: " . $namePeriodo, date("Y-m-d"), date("H:i:s"), $user_ip, PHP_OS, $browser, $_SESSION['id']);
 		$logProfesor -> insert();
 	}
 	else if($_SESSION['entity'] == 'Secretaria'){
-		$logSecretaria = new LogSecretaria("","Create Logro", "Nombre: " . $nombre . ";; Descripcion: " . $descripcion . ";; Asignatura: " . $nameAsignatura . ";; Tipo Logro: " . $nameTipoLogro, date("Y-m-d"), date("H:i:s"), $user_ip, PHP_OS, $browser, $_SESSION['id']);
+		$logSecretaria = new LogSecretaria("","Create Logro", "Nombre: " . $nombre . ";; Descripcion: " . $descripcion . ";; Asignatura: " . $nameAsignatura . ";; Tipo Logro: " . $nameTipoLogro . ";; Periodo: " . $namePeriodo, date("Y-m-d"), date("H:i:s"), $user_ip, PHP_OS, $browser, $_SESSION['id']);
 		$logSecretaria -> insert();
 	}
 	$processed=true;
@@ -115,6 +125,22 @@ if(isset($_POST['insert'])){
 									echo " selected";
 								}
 								echo ">" . $currentTipoLogro -> getNombre() . "</option>";
+							}
+							?>
+						</select>
+					</div>
+					<div class="form-group">
+						<label>Periodo*</label>
+						<select class="form-control" name="periodo">
+							<?php
+							$objPeriodo = new Periodo();
+							$periodos = $objPeriodo -> selectAll();
+							foreach($periodos as $currentPeriodo){
+								echo "<option value='" . $currentPeriodo -> getIdPeriodo() . "'";
+								if($currentPeriodo -> getIdPeriodo() == $periodo){
+									echo " selected";
+								}
+								echo ">" . $currentPeriodo -> getOrden() . "</option>";
 							}
 							?>
 						</select>

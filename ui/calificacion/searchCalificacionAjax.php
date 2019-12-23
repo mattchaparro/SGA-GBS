@@ -8,6 +8,8 @@
 	<thead>
 		<tr><th></th>
 			<th nowrap>Nota</th>
+			<th nowrap>Fallas</th>
+			<th nowrap>Id Definitiva</th>
 			<th>Tipo Calificacion</th>
 			<th>Periodo</th>
 			<th>Estudiante</th>
@@ -23,6 +25,8 @@
 		foreach ($calificacions as $currentCalificacion) {
 			echo "<tr><td>" . $counter . "</td>";
 			echo "<td>" . str_ireplace($_GET['search'], "<mark>" . $_GET['search'] . "</mark>", $currentCalificacion -> getNota()) . "</td>";
+			echo "<td>" . str_ireplace($_GET['search'], "<mark>" . $_GET['search'] . "</mark>", $currentCalificacion -> getFallas()) . "</td>";
+			echo "<td>" . str_ireplace($_GET['search'], "<mark>" . $_GET['search'] . "</mark>", $currentCalificacion -> getIdDefinitiva()) . "</td>";
 			echo "<td>" . $currentCalificacion -> getTipoCalificacion() -> getNombre() . "</td>";
 			echo "<td>" . $currentCalificacion -> getPeriodo() -> getOrden() . "</td>";
 			echo "<td>" . $currentCalificacion -> getEstudiante() -> getNombre() . " " . $currentCalificacion -> getEstudiante() -> getApellido() . "</td>";

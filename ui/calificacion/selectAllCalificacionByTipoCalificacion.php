@@ -34,6 +34,34 @@ $tipoCalificacion -> select();
 							<span class='fas fa-sort-amount-down'></span></a>
 						<?php } ?>
 						</th>
+						<th nowrap>Fallas 
+						<?php if($order=="fallas" && $dir=="asc") { ?>
+							<span class='fas fa-sort-up'></span>
+						<?php } else { ?>
+							<a data-toggle='tooltip' class='tooltipLink' data-original-title='Sort Ascending' href='index.php?pid=<?php echo base64_encode("ui/calificacion/selectAllCalificacionByTipoCalificacion.php") ?>&idTipoCalificacion=<?php echo $_GET['idTipoCalificacion'] ?>&order=fallas&dir=asc'>
+							<span class='fas fa-sort-amount-up'></span></a>
+						<?php } ?>
+						<?php if($order=="fallas" && $dir=="desc") { ?>
+							<span class='fas fa-sort-down'></span>
+						<?php } else { ?>
+							<a data-toggle='tooltip' class='tooltipLink' data-original-title='Sort Descending' href='index.php?pid=<?php echo base64_encode("ui/calificacion/selectAllCalificacionByTipoCalificacion.php") ?>&idTipoCalificacion=<?php echo $_GET['idTipoCalificacion'] ?>&order=fallas&dir=desc'>
+							<span class='fas fa-sort-amount-down'></span></a>
+						<?php } ?>
+						</th>
+						<th nowrap>Id Definitiva 
+						<?php if($order=="idDefinitiva" && $dir=="asc") { ?>
+							<span class='fas fa-sort-up'></span>
+						<?php } else { ?>
+							<a data-toggle='tooltip' class='tooltipLink' data-original-title='Sort Ascending' href='index.php?pid=<?php echo base64_encode("ui/calificacion/selectAllCalificacionByTipoCalificacion.php") ?>&idTipoCalificacion=<?php echo $_GET['idTipoCalificacion'] ?>&order=idDefinitiva&dir=asc'>
+							<span class='fas fa-sort-amount-up'></span></a>
+						<?php } ?>
+						<?php if($order=="idDefinitiva" && $dir=="desc") { ?>
+							<span class='fas fa-sort-down'></span>
+						<?php } else { ?>
+							<a data-toggle='tooltip' class='tooltipLink' data-original-title='Sort Descending' href='index.php?pid=<?php echo base64_encode("ui/calificacion/selectAllCalificacionByTipoCalificacion.php") ?>&idTipoCalificacion=<?php echo $_GET['idTipoCalificacion'] ?>&order=idDefinitiva&dir=desc'>
+							<span class='fas fa-sort-amount-down'></span></a>
+						<?php } ?>
+						</th>
 						<th>Tipo Calificacion</th>
 						<th>Periodo</th>
 						<th>Estudiante</th>
@@ -43,7 +71,7 @@ $tipoCalificacion -> select();
 				</thead>
 				</tbody>
 					<?php
-					$calificacion = new Calificacion("", "", $_GET['idTipoCalificacion'], "", "", "");
+					$calificacion = new Calificacion("", "", "", "", $_GET['idTipoCalificacion'], "", "", "");
 					if($order!="" && $dir!="") {
 						$calificacions = $calificacion -> selectAllByTipoCalificacionOrder($order, $dir);
 					} else {
@@ -53,6 +81,8 @@ $tipoCalificacion -> select();
 					foreach ($calificacions as $currentCalificacion) {
 						echo "<tr><td>" . $counter . "</td>";
 						echo "<td>" . $currentCalificacion -> getNota() . "</td>";
+						echo "<td>" . $currentCalificacion -> getFallas() . "</td>";
+						echo "<td>" . $currentCalificacion -> getIdDefinitiva() . "</td>";
 						echo "<td>" . $currentCalificacion -> getTipoCalificacion() -> getNombre() . "</td>";
 						echo "<td>" . $currentCalificacion -> getPeriodo() -> getOrden() . "</td>";
 						echo "<td>" . $currentCalificacion -> getEstudiante() -> getNombre() . " " . $currentCalificacion -> getEstudiante() -> getApellido() . "</td>";
